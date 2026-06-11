@@ -584,7 +584,25 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    GameCoreScarlett: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    Kepler: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    LinuxHeadlessSimulation: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    Nintendo Switch: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    Nintendo Switch 2: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    PS4: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    PS5: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    QNX: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    Standalone: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    VisionOS: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    WebGL: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    Windows Store Apps: DOTWEEN;DOTWEEN_NOPHYSICS
+    XboxOne: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
+    iPhone: DOTWEEN;DOTWEEN_NOPHYSICS
+    tvOS: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN;DOTWEEN_NOPHYSICS
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -684,11 +702,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 78b9e505-62c6-45e4-a76f-b94b7cc457a8
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Joust and It's Completely Different but Also Still Joust
+  organizationId: unity_0a6044191b08748beeef
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
