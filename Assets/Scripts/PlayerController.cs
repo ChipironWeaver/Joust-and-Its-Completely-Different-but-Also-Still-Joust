@@ -67,7 +67,11 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            else _horizontalInputMemory = 0;
+            else
+            {
+                _isSelfStoping = false;
+                _horizontalInputMemory = 0;
+            }
         }
         if(_isSelfStoping)
         {
