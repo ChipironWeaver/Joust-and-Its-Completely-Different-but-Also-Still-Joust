@@ -9,15 +9,34 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField,Tag] private string _enemyTag;
     
     private Rigidbody2D _rigidbody2D;
+    private PlayerController _playerController;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _playerController = GetComponent<PlayerController>();
+        _health = _maxHealth;
     }
 
     private void Death()
     {
-        Debug.Log("I'm dead");
+        _health--;
+        if (_health > 0)
+        {
+            Respawn();
+            return;
+        }
+        PermaDeath();
+    }
+
+    private void Respawn()
+    {
+        Debug.Log("Respawn");
+    }
+
+    private void PermaDeath()
+    {
+        Debug.Log("PermaDeath");
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
             switch (result)
             {
                 case AttackResult.Bounce:
-                    Debug.Log("Bounce");
+                    _rigidbody2D.linearVelocityX = -_playerController.velocityMemory.x * (_playerController.bounceForce / 100);
                     break;
                 case AttackResult.EnemyDeath:
                     Debug.Log("kill");

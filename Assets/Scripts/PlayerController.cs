@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,15 +20,14 @@ public class PlayerController : MonoBehaviour
     [Header("Wall Bounce Settings")]
     [SerializeField] private Vector2 _wallBoxSize;
     [SerializeField] private float _wallCastDistance;
-    [SerializeField] private float _bounceForce;
+    public float bounceForce;
     
     
     private float _horizontalInput;
     private float _horizontalInputMemory;
-    private Vector2 _velocityMemory;
+    [HideInInspector] public Vector2 velocityMemory;
     private bool _isGrounded;
     private bool _isSelfStoping;
-    
     private Rigidbody2D _rigidbody2D;
     
     void Start()
@@ -39,15 +39,15 @@ public class PlayerController : MonoBehaviour
     {
         _isGrounded = IsGrounded();
         
-        if (MathF.Abs(_rigidbody2D.linearVelocityX) < 0.01 && _velocityMemory.x != 0 && IsNextToWall())
-            _rigidbody2D.linearVelocityX = -_velocityMemory.x * (_bounceForce / 100);
+        if (MathF.Abs(_rigidbody2D.linearVelocityX) < 0.01 && velocityMemory.x != 0 && IsNextToWall())
+            _rigidbody2D.linearVelocityX = -velocityMemory.x * (bounceForce / 100);
         
         else if (_rigidbody2D.linearVelocityX < _maxSpeed) 
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX +( _isGrounded ? _groundAcceleration : _airAcceleration) /100 
                 * _horizontalInput * _maxSpeed * Time.fixedDeltaTime, -_maxSpeed, _maxSpeed);
         
-        if (MathF.Abs(_rigidbody2D.linearVelocityY)  < 0.01 && _velocityMemory.y > 0 && IsNextToWall())
-            _rigidbody2D.linearVelocityY = -_velocityMemory.y * (_bounceForce / 100);
+        if (MathF.Abs(_rigidbody2D.linearVelocityY)  < 0.01 && velocityMemory.y > 0 && IsNextToWall())
+            _rigidbody2D.linearVelocityY = -velocityMemory.y * (bounceForce / 100);
 
         if (_horizontalInput == 0 && _horizontalInputMemory != 0)
         {
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody2D.linearVelocityX += _groundAcceleration / 100 * _horizontalInputMemory * _maxSpeed * Time.fixedDeltaTime;
         }
         
-        _velocityMemory = _rigidbody2D.linearVelocity;
+        velocityMemory = _rigidbody2D.linearVelocity;
     }
 
     void OnMove(InputValue value)
