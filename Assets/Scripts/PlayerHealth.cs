@@ -11,8 +11,9 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private PlayerController _playerController;
 
-    private void Start()
+    private void OnEnable()
     {
+        LevelManager.Instance.RegisterPlayer(this);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerController = GetComponent<PlayerController>();
         _health = _maxHealth;

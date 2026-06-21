@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _isSelfStoping;
     private Rigidbody2D _rigidbody2D;
-    
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
