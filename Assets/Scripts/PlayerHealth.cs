@@ -43,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(_enemyTag))
         {
+            print("moew");
             AttackResult result = collision.gameObject.GetComponent<EnemyBehavior>().EnemyDuel(gameObject);
             switch (result)
             {
