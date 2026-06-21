@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
     [SerializeField,Tag] private string _enemyTag;
+    [SerializeField] private HeartRenderer _renderer;
     
     public bool isActive;
     
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerController = GetComponent<PlayerController>();
         _health = _maxHealth;
+        _renderer.UpdateHearts(_health);
     }
 
     private void Start()
@@ -29,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     private void Death()
     {
         _health--;
+        _renderer.UpdateHearts(_health);
         if (_health > 0)
         {
             Respawn();
