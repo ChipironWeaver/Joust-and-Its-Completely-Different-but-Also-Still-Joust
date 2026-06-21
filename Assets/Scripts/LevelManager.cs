@@ -43,8 +43,10 @@ public class LevelManager : MonoBehaviour
     public void Spawn(GameObject objectToRespawn)
     {
         int spawnPointIndex = Random.Range(0, spawnPoints.Count);
-        if(spawnPointIndex == _lastSpawnPointIndex)  
+        if(spawnPointIndex == _lastSpawnPointIndex)
+        {
             spawnPointIndex = spawnPointIndex + 1 >= spawnPoints.Count ? 0 : spawnPointIndex + 1;
+        }
         _lastSpawnPointIndex = spawnPointIndex;
         Vector2 spawnPosition = spawnPoints[spawnPointIndex].transform.position;
         objectToRespawn.transform.position = new Vector3(spawnPosition.x, spawnPosition.y + objectToRespawn.GetComponent<BoxCollider2D>().size.y / 2,0);

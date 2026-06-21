@@ -14,17 +14,13 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private PlayerController _playerController;
 
-    private void OnEnable()
+    private void Start()
     {
         LevelManager.Instance.RegisterPlayer(this);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerController = GetComponent<PlayerController>();
         _health = _maxHealth;
         _renderer.UpdateHearts(_health);
-    }
-
-    private void Start()
-    {
         Respawn();
     }
 
