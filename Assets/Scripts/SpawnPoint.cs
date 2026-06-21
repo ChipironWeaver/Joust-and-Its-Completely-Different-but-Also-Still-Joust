@@ -9,6 +9,6 @@ public class SpawnPoint : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log("Respawn");
+        //Respawn Animation
     }
 }

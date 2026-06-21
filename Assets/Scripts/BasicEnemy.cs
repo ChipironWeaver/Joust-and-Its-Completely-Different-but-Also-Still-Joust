@@ -39,6 +39,7 @@ public class BasicEnemy : EnemyBehavior
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _horizontalInput = Random.Range(0, 1) * 2 - 1;
         _jumpCooldown = 2;
+        LevelManager.Instance.RegisterEnemies(this);
         Spawn();
     }
     public override AttackResult EnemyDuel(GameObject player)
@@ -66,6 +67,7 @@ public class BasicEnemy : EnemyBehavior
     {
         // ON DEATH EFFECT
         LevelManager.Instance.enemies.Remove(this);
+        Actions.EnemyDeath?.Invoke();
         Destroy(gameObject);
     }
 

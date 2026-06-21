@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Respawn()
     {
-        
+        Actions.PlayerRespawn?.Invoke();
         LevelManager.Instance.Spawn(gameObject);
         SetActivation(false);
         //Respawn stuff
@@ -49,6 +49,8 @@ public class PlayerHealth : MonoBehaviour
     private void PermaDeath()
     {
         Debug.Log("PermaDeath");
+        Actions.PlayerDeath?.Invoke();
+        SetActivation(false);
     }
 
     private void SetActivation(bool isSetActive)

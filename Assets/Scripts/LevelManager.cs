@@ -47,9 +47,14 @@ public class LevelManager : MonoBehaviour
             spawnPointIndex = spawnPointIndex + 1 >= spawnPoints.Count ? 0 : spawnPointIndex + 1;
         _lastSpawnPointIndex = spawnPointIndex;
         Vector2 spawnPosition = spawnPoints[spawnPointIndex].transform.position;
-        
         objectToRespawn.transform.position = new Vector3(spawnPosition.x, spawnPosition.y + objectToRespawn.GetComponent<BoxCollider2D>().size.y / 2,0);
         spawnPoints[spawnPointIndex].Respawn();
+    }
+
+    public void RemovePlayer(PlayerHealth player)
+    {
+        players.Remove(player);
+        if(players.Count <= 0) Actions.Lose?.Invoke();
     }
     
     public void RegisterPlayer(PlayerHealth player)
