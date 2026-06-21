@@ -60,8 +60,9 @@ Material:
     m_Floats:
     - _ColorResolution: 8
     - _DitherSpread: 0.1
-    - _DitherTiling: 0.1111111
+    - _DitherTiling: 0.11111111
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
+    - _DitherOffset: {r: 0.002, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
