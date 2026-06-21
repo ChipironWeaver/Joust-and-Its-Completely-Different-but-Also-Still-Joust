@@ -32,8 +32,12 @@ public class BasicEnemy : EnemyBehavior
     private Vector2 _velocityMemory;
     private float _jumpCooldown;
     private float _currentJumpCooldown;
-    
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(gameObject.tag)) 
+            HorizontalBounce();
+    }
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -46,10 +50,8 @@ public class BasicEnemy : EnemyBehavior
     {
         if (!isActive) return AttackResult.None;
         float heightDifference = player.transform.position.y - transform.position.y;
-        print(heightDifference);
         if (heightDifference > _enemyDeathHeight)
         {
-            Debug.Log("im dead - jone enemy");
             Death();
             return AttackResult.EnemyDeath;
         }
@@ -57,7 +59,6 @@ public class BasicEnemy : EnemyBehavior
         Jump();
         if (heightDifference < _playerDeathHeight)
         {
-            Debug.Log("im dead - jone player");
             return AttackResult.PlayerDeath;
         }
         return AttackResult.Bounce;

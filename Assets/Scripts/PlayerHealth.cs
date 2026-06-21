@@ -77,7 +77,6 @@ public class PlayerHealth : MonoBehaviour
                     _rigidbody2D.linearVelocityX = -_playerController.velocityMemory.x * (_playerController.bounceForce / 100);
                     break;
                 case AttackResult.EnemyDeath:
-                    Debug.Log("kill");
                     break;
                 case AttackResult.PlayerDeath:
                     Death();
