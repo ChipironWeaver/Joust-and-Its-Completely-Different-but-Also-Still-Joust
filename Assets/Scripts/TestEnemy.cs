@@ -7,4 +7,14 @@ public class TestEnemy : EnemyBehavior
     {
         return _result;
     }
+
+    public override void Spawn()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Death()
+    {
+        throw new System.NotImplementedException();
+    }
 }

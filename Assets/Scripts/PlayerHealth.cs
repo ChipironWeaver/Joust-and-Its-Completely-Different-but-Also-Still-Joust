@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [SerializeField,Tag] private string _enemyTag;
     
+    public bool isActive;
+    
     private Rigidbody2D _rigidbody2D;
     private PlayerController _playerController;
 
@@ -17,6 +19,11 @@ public class PlayerHealth : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerController = GetComponent<PlayerController>();
         _health = _maxHealth;
+    }
+
+    private void Start()
+    {
+        Respawn();
     }
 
     private void Death()
@@ -32,7 +39,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Respawn()
     {
-        Debug.Log("Respawn");
+        
+        LevelManager.Instance.Spawn(gameObject);
+        SetActivation(false);
+        //Respawn stuff
+        SetActivation(true);
     }
 
     private void PermaDeath()
@@ -40,11 +51,20 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("PermaDeath");
     }
 
+    private void SetActivation(bool isSetActive)
+    {
+        isActive = isSetActive;
+        _playerController.isActive = isSetActive;
+        _rigidbody2D.constraints = !isActive?  RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
+        if (!isSetActive) _rigidbody2D.linearVelocity = Vector2.zero;
+        
+    }
+    
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if(!isActive) return;
         if (collision.gameObject.CompareTag(_enemyTag))
         {
-            print("moew");
             AttackResult result = collision.gameObject.GetComponent<EnemyBehavior>().EnemyDuel(gameObject);
             switch (result)
             {

@@ -26,7 +26,6 @@ public class BasicEnemy : EnemyBehavior
     [SerializeField] private Vector2 _wallBoxSize;
     [SerializeField] private float _wallCastDistance;
     public float bounceForce;
-
     private float _horizontalInput;
     private Rigidbody2D _rigidbody2D;
     private bool _isGrounded;
@@ -40,9 +39,11 @@ public class BasicEnemy : EnemyBehavior
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _horizontalInput = Random.Range(0, 1) * 2 - 1;
         _jumpCooldown = 2;
+        Spawn();
     }
     public override AttackResult EnemyDuel(GameObject player)
     {
+        if (!isActive) return AttackResult.None;
         float heightDifference = player.transform.position.y - transform.position.y;
         print(heightDifference);
         if (heightDifference > _enemyDeathHeight)
@@ -61,12 +62,22 @@ public class BasicEnemy : EnemyBehavior
         return AttackResult.Bounce;
     }
 
-    void Death()
+    public override void Death()
     {
+        // ON DEATH EFFECT
+        LevelManager.Instance.enemies.Remove(this);
         Destroy(gameObject);
+    }
+
+    public override void Spawn()
+    {
+        LevelManager.Instance.Spawn(gameObject);
+        //play respawn animation + queue the activation
+        isActive = true;
     }
     void FixedUpdate()
     {
+        if (!isActive) return;
         _isGrounded = IsGrounded();
 
         _currentJumpCooldown += Time.fixedDeltaTime;
@@ -83,8 +94,6 @@ public class BasicEnemy : EnemyBehavior
         else if (_rigidbody2D.linearVelocityX < _maxSpeed) 
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX +( _isGrounded ? _groundAcceleration : _airAcceleration) /100 
                 * _horizontalInput * _maxSpeed * Time.fixedDeltaTime, -_maxSpeed, _maxSpeed);
-        
-        
         
         _velocityMemory = _rigidbody2D.linearVelocity;
     }

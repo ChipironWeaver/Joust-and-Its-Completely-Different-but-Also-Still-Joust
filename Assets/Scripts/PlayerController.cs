@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour
     [Header("Wall Bounce Settings")]
     [SerializeField] private Vector2 _wallBoxSize;
     [SerializeField] private float _wallCastDistance;
-    public float bounceForce;
     
+    public float bounceForce;
+    public bool isActive;
     
     private float _horizontalInput;
     private float _horizontalInputMemory;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
+        if(!isActive) return;
         _isGrounded = IsGrounded();
         
         if (MathF.Abs(_rigidbody2D.linearVelocityX) < 0.01 && velocityMemory.x != 0 && IsNextToWall())
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
+        if (!isActive) return;
         if (IsGrounded())
         {
             _rigidbody2D.AddForce(Vector2.up * _groundJumpForce, ForceMode2D.Impulse);

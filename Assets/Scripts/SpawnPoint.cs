@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    void OnEnable()
+    void Start()
     {
         LevelManager.Instance.RegisterSpawnPoint(this);
     }
