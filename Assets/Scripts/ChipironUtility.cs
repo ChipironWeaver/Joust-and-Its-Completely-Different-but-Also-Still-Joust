@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class ChipironUtility 
 {
-    public static float EvaluateVector2Curve(Vector2 vector, float time)
+    public static float EvaluateVector2(Vector2 vector, float time)
     {
         return vector.x + (vector.y - vector.x) * time;
     }

@@ -647,6 +647,7 @@ MonoBehaviour:
   canSpawn: 1
   currentWave: 0
   enemiesToSpawn: 0
+  _testWave: 1
 --- !u!1 &1947755999
 GameObject:
   m_ObjectHideFlags: 0

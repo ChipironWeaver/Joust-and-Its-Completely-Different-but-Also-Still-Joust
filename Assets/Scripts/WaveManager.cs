@@ -53,7 +53,7 @@ public class WaveManager : MonoBehaviour
             return;
         }
         Actions.WaveStart?.Invoke();
-        enemiesToSpawn = ChipironUtility.RandomRound(ChipironUtility.EvaluateVector2Curve( _enemyCountRange,  _enemyCountCurve.Evaluate(currentWave / (float)_maxWave)));
+        enemiesToSpawn = ChipironUtility.RandomRound(ChipironUtility.EvaluateVector2( _enemyCountRange,  _enemyCountCurve.Evaluate(currentWave / (float)_maxWave)));
         Invoke(nameof(SpawnEnemy), _waveCooldown);
     }
 
@@ -73,7 +73,7 @@ public class WaveManager : MonoBehaviour
         float totalWeight = 0;
         foreach (EnemyWeight weight in _enemyWeights)
         {
-            weights.Add(ChipironUtility.EvaluateVector2Curve(weight.weightRangePerWave,currentWave / (float)_maxWave));
+            weights.Add(ChipironUtility.EvaluateVector2(weight.weightRangePerWave,weight.weightCurve.Evaluate(currentWave / (float)_maxWave)));
             totalWeight += weights.Last();
         }
         float targetWeight = Random.Range(0, totalWeight);
