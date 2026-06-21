@@ -85,6 +85,20 @@ public class WaveManager : MonoBehaviour
         }
         return choice;
     }
+    
+    
+    public static WaveManager Instance{ get; private set; }
+    void Singleton()
+    {
+        if (Instance !=null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 }
 
 [Serializable]
