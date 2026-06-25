@@ -60,9 +60,11 @@ Material:
     m_Floats:
     - _ColorResolution: 8
     - _DitherSpread: 0.1
-    - _DitherTiling: 0.11111111
+    - _DitherTiling: 320
+    - _TargetHeight: 2160
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
-    - _DitherOffset: {r: 0.002, g: 0, b: 0, a: 0}
+    - _DitherOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _TargetResolution: {r: 320, g: 240, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -45,10 +45,12 @@ public class PlayerHealth : MonoBehaviour
         SetActivation(true);
     }
 
+    [Button]
     private void PermaDeath()
     {
         Debug.Log("PermaDeath");
         Actions.PlayerDeath?.Invoke();
+        LevelManager.Instance.RemovePlayer(this);
         SetActivation(false);
     }
 

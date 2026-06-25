@@ -23,6 +23,7 @@ public class WaveManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Singleton();
         Actions.EnemyDeath += TryWaves;
     }
 
