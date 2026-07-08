@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
     public List<EnemyBehavior> enemies;
     public List<PlayerHealth> players;
     public List<SpawnPoint> spawnPoints;
-
+    
     private GameObject _playerGo;
     private GameObject _enemiesGo;
     private GameObject _spawnPointGo;
@@ -61,6 +61,11 @@ public class LevelManager : MonoBehaviour
     
     public void RegisterPlayer(PlayerHealth player)
     {
+        if (InformationHolder.NumberOfPlayers != -1 && InformationHolder.NumberOfPlayers == players.Count)
+        {
+            Destroy(player.gameObject);
+            return;
+        }
         players.Add(player);
         player.transform.SetParent(_playerGo.transform);
     }

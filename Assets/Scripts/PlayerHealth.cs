@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         _playerController = GetComponent<PlayerController>();
         _health = _maxHealth;
         _renderer.UpdateHearts(_health);
-        Respawn();
+        Invoke( nameof(Respawn), 0.1f);
     }
 
     private void Death()
