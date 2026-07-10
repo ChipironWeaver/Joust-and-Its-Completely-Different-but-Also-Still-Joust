@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class ChipironUtility 
@@ -11,5 +12,15 @@ public static class ChipironUtility
     {
         int num2 = Mathf.FloorToInt(num);
         return num2 + (Random.Range(1,100) <= (num - num2) * 100 ?  1 : 0);
+    }
+
+    public static string GetListString<TVar>(List<TVar>list)
+    {
+        string output = string.Empty;
+        foreach (var item in list)
+        {
+            output += item.ToString() + " , ";
+        }
+        return output;
     }
 }
