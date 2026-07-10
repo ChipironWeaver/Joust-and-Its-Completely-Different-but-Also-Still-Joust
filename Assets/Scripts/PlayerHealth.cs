@@ -14,6 +14,10 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private PlayerController _playerController;
 
+    private void OnDestroy()
+    {
+        Destroy(_renderer.gameObject);
+    }
     private void Start()
     {
         LevelManager.Instance.RegisterPlayer(this);

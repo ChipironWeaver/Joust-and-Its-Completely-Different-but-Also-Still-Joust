@@ -25,6 +25,7 @@ public class UISceneTransitionLoader : MonoBehaviour
     {
         Color color = _fadeColor;
         Sequence fadeOutSequence = DOTween.Sequence();
+        fadeOutSequence.SetUpdate(true);
         fadeOutSequence.Append(_image.DOColor(color, _fadeDuration));
         fadeOutSequence.OnComplete(() =>
         {
@@ -32,7 +33,6 @@ public class UISceneTransitionLoader : MonoBehaviour
             if (sceneName != null) SceneManager.LoadScene(sceneName);
             
         }) ;
-        fadeOutSequence.SetUpdate(true);
     }
 
     private void FadeIn()

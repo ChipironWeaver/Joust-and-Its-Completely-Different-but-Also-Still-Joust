@@ -70,12 +70,15 @@ public class UIAnimator : MonoBehaviour
     {
         public bool soloOnScreen;
         public bool multipleObjects;
-        public List<Button> buttonToDisable = new List<Button>();
+        public List<Image> buttonToDisable = new List<Image>();
         public AnimationObject singleAnimationObject;
         public AnimationObject[] animationObjects;
         public float Animate(bool isFadeOut = false)
         {
-            foreach (Button button in buttonToDisable) button.interactable = !isFadeOut;
+            foreach (Image button in buttonToDisable)
+            {
+                button.raycastTarget = !isFadeOut;
+            }
             float sequenceTime = 0;
             if (multipleObjects)
             {

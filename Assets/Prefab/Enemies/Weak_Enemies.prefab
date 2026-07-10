@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.5372549, g: 0.47858247, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,13 +132,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &8644794838340971854
 MonoBehaviour:
@@ -163,11 +163,11 @@ MonoBehaviour:
   _enemyDeathHeight: 0.2
   _playerDeathHeight: -0.4
   _groundBoxSize: {x: 0.8, y: 0.1}
-  _groundCastDistance: 1
+  _groundCastDistance: 0.5
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _wallBoxSize: {x: 1.2, y: 2}
+  _wallBoxSize: {x: 1.2, y: 1}
   _wallCastDistance: 0.1
   bounceForce: 80
 --- !u!50 &2762936669658460359
