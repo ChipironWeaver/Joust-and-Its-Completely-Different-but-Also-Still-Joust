@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8860093789915559480}
   - component: {fileID: 8644794838340971854}
   - component: {fileID: 2762936669658460359}
+  - component: {fileID: -8303095460031572001}
   m_Layer: 0
   m_Name: Weak_Enemies
   m_TagString: Enemy
@@ -170,6 +171,21 @@ MonoBehaviour:
     m_Bits: 8
   _wallBoxSize: {x: 1.2, y: 1}
   _wallCastDistance: 0.1
+  _onDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -8303095460031572001}
+        m_TargetAssemblyTypeName: SpecialInstantiate, Assembly-CSharp
+        m_MethodName: DoInstantiate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bounceForce: 80
 --- !u!50 &2762936669658460359
 Rigidbody2D:
@@ -198,3 +214,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8303095460031572001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649713570011417237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d9c4e08cb40864b81dbad7bc439702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Instantiate
+  _prefab: {fileID: 7504543119071651597, guid: 3c900f582acbdaa49968d185f992a027, type: 3}
+  _instantiateOnPositon: 1
+  _positonOffset: {x: 0, y: 0, z: 0}
+  _spawnPositon: {x: 0, y: 0, z: 0}
+  _yeetTheInstantiateOnSpawn: 1
+  _yeetForce: 5
+  _isSetLaunchDirection: 1
+  _launchDirection: {x: 0, y: -1}
+  _registerInEnemies: 1
+  _spawnAsEnemy: 0

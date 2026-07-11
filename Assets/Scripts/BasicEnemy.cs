@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using NaughtyAttributes;
@@ -69,16 +70,24 @@ public class BasicEnemy : EnemyBehavior
 
     public override void Death()
     {
-        // ON DEATH EFFECT
+        isActive = false;
+        _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        GetComponent<BoxCollider2D>().isTrigger = true;
         _onDeathEvent?.Invoke();
         LevelManager.Instance.enemies.Remove(this);
         Actions.EnemyDeath?.Invoke();
-        Destroy(gameObject);
+        Sequence deathSequence = DOTween.Sequence();
+        deathSequence.AppendInterval(0.5f);
+        deathSequence.OnComplete(() =>
+            {
+                Destroy(gameObject);
+            }
+        );
+
     }
 
     public override void Spawn()
     {
-        LevelManager.Instance.Spawn(gameObject);
         //play respawn animation + queue the activation
         isActive = true;
     }

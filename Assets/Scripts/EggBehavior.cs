@@ -1,11 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EggBehavior : EnemyBehavior
 {
-    [SerializeField] private float _pushPower;
     [SerializeField] private int _pointAmount;
     [SerializeField] private float _enemySpawnTime;
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private UnityEvent _spawnEvent;
     private Rigidbody2D _rigidbody2D;
     public void Start()
     {
@@ -24,17 +24,13 @@ public class EggBehavior : EnemyBehavior
     {
         Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         direction.Normalize();
-        _rigidbody2D.linearVelocity = direction * _pushPower;
         Invoke(nameof(SpawnEnemy) , _enemySpawnTime);
     }
 
     public void SpawnEnemy()
     {
-        if (_enemyPrefab != null)
-        {
-            Instantiate(_enemyPrefab);
-            Death();
-        }
+        _spawnEvent.Invoke();
+        Death();
     }
     
     public override void Death()

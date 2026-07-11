@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(_renderer.gameObject);
+        if(_renderer != null) Destroy(_renderer.gameObject);
     }
     private void Start()
     {
@@ -80,6 +80,7 @@ public class PlayerHealth : MonoBehaviour
                     _rigidbody2D.linearVelocityX = -_playerController.velocityMemory.x * (_playerController.bounceForce / 100);
                     break;
                 case AttackResult.EnemyDeath:
+                    _rigidbody2D.linearVelocityX = -_playerController.velocityMemory.x * (_playerController.bounceForce / 200);
                     break;
                 case AttackResult.PlayerDeath:
                     Death();

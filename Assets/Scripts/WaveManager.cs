@@ -62,7 +62,8 @@ public class WaveManager : MonoBehaviour
     {
         if (!canSpawn) return;
         if (enemiesToSpawn <= 0) return;
-        Instantiate(ChoseEnemy());
+        GameObject enemy = Instantiate(ChoseEnemy());
+        LevelManager.Instance.Spawn(enemy);
         enemiesToSpawn--;
         Invoke(nameof(SpawnEnemy), _spawnCooldown);
     }
