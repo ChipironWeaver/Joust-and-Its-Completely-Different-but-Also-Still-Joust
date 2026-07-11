@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9dcccfb8528d74e8019a8a80f7e34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  hazardTag: Hazard
   isActive: 0
   _maxSpeed: 7
   _groundAcceleration: 75

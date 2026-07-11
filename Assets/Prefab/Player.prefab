@@ -241,5 +241,6 @@ MonoBehaviour:
   _health: 0
   _maxHealth: 4
   _enemyTag: Enemy
+  _hazardTag: Hazard
   _renderer: {fileID: 0}
   isActive: 0

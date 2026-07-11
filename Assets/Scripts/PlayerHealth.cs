@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
     [SerializeField,Tag] private string _enemyTag;
+    [SerializeField,Tag] private string _hazardTag;
     [SerializeField] private HeartRenderer _renderer;
     
     public bool isActive;
@@ -84,6 +85,18 @@ public class PlayerHealth : MonoBehaviour
                     Death();
                     break;
             }
+        }
+        else if (collision.gameObject.CompareTag(_hazardTag))
+        {
+            Death();
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(_hazardTag))
+        {
+            Death();
         }
     }
 }

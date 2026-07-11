@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using NaughtyAttributes;
+using UnityEngine.Events;
 
 public class BasicEnemy : EnemyBehavior
 {
@@ -25,6 +26,8 @@ public class BasicEnemy : EnemyBehavior
     [Header("Wall Bounce Settings")]
     [SerializeField] private Vector2 _wallBoxSize;
     [SerializeField] private float _wallCastDistance;
+    [Header("On Death Effect")]
+    [SerializeField] private UnityEvent _onDeathEvent;
     public float bounceForce;
     private float _horizontalInput;
     private Rigidbody2D _rigidbody2D;
@@ -67,6 +70,7 @@ public class BasicEnemy : EnemyBehavior
     public override void Death()
     {
         // ON DEATH EFFECT
+        _onDeathEvent?.Invoke();
         LevelManager.Instance.enemies.Remove(this);
         Actions.EnemyDeath?.Invoke();
         Destroy(gameObject);
