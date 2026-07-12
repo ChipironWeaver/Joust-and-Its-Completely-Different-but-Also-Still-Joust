@@ -17,17 +17,19 @@ public class SpecialInstantiate : MonoBehaviour
     public void DoInstantiate()
     {
         if (_prefab == null) return;
-        GameObject prefab = Instantiate(_prefab);
-        print(transform.position);
-        print(_instantiateOnPositon ? _spawnPositon : transform.position + _positonOffset);
-        prefab.transform.position = _instantiateOnPositon ? _spawnPositon : transform.position + _positonOffset ;
+        {DoInstantiatePrefab(_prefab);}
+    }
+
+    public void DoInstantiatePrefab(GameObject instantiate)
+    {
+        GameObject prefab = Instantiate(instantiate);
+        prefab.transform.position = _instantiateOnPositon ? transform.position + _positonOffset : _spawnPositon ;
         if (_yeetTheInstantiateOnSpawn)
         {
             Vector2 direction = _isSetLaunchDirection ? new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) : _launchDirection;
             direction.Normalize();
             prefab.GetComponent<Rigidbody2D>().linearVelocity = direction * _yeetForce;
         }
-
         if (_registerInEnemies)
         {
             LevelManager.Instance.RegisterEnemies(prefab.GetComponent<EnemyBehavior>());

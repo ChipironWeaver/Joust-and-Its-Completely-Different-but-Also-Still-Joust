@@ -672,9 +672,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIGameOverScreen
   _panel: {fileID: 736380824}
   _background: {fileID: 621499439}
-  _buttons:
+  _panels:
   - {fileID: 879165652}
   - {fileID: 1752616076}
+  - {fileID: 724975273}
+  - {fileID: 919035592}
   _endText: {fileID: 1279348394}
   _waveText: {fileID: 1754483786}
   _coloredText:
@@ -1146,6 +1148,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1401780157949465207, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401780157949465207, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
+      propertyPath: m_Color.r
+      value: 0.97536004
+      objectReference: {fileID: 0}
     - target: {fileID: 2115608788020031287, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
       propertyPath: _renderer
       value: 
@@ -1696,6 +1706,7 @@ GameObject:
   - component: {fileID: 1599412887}
   - component: {fileID: 1599412886}
   - component: {fileID: 1599412888}
+  - component: {fileID: 1599412889}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1865,6 +1876,28 @@ MonoBehaviour:
   canSpawn: 1
   currentWave: 0
   enemiesToSpawn: 0
+--- !u!114 &1599412889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599412885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d9c4e08cb40864b81dbad7bc439702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialInstantiate
+  _prefab: {fileID: 0}
+  _instantiateOnPositon: 0
+  _positonOffset: {x: 0, y: 0, z: 0}
+  _spawnPositon: {x: 0, y: 0, z: 0}
+  _yeetTheInstantiateOnSpawn: 0
+  _yeetForce: 0
+  _isSetLaunchDirection: 0
+  _launchDirection: {x: 0, y: 0}
+  _registerInEnemies: 1
+  _spawnAsEnemy: 1
 --- !u!1 &1616389234
 GameObject:
   m_ObjectHideFlags: 0

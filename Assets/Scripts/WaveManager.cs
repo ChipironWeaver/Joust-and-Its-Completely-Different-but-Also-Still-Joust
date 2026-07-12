@@ -21,6 +21,8 @@ public class WaveManager : MonoBehaviour
     [ReadOnly] public int currentWave;
     [ReadOnly] public int enemiesToSpawn;
 
+    private SpecialInstantiate _spInstantiate;
+
     private void OnEnable()
     {
         Singleton();
@@ -34,6 +36,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        _spInstantiate = GetComponent<SpecialInstantiate>();
         if (_autoStartSpawning) StartWave();
     }
 
@@ -62,8 +65,7 @@ public class WaveManager : MonoBehaviour
     {
         if (!canSpawn) return;
         if (enemiesToSpawn <= 0) return;
-        GameObject enemy = Instantiate(ChoseEnemy());
-        LevelManager.Instance.Spawn(enemy);
+        _spInstantiate.DoInstantiatePrefab(ChoseEnemy());
         enemiesToSpawn--;
         Invoke(nameof(SpawnEnemy), _spawnCooldown);
     }

@@ -10,7 +10,6 @@ public class EggBehavior : EnemyBehavior
     public void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        LevelManager.Instance.RegisterEnemies(this);
         Spawn();
     }
     public override AttackResult EnemyDuel(GameObject player)
@@ -37,6 +36,8 @@ public class EggBehavior : EnemyBehavior
     {
         isActive = false;
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        LevelManager.Instance.enemies.Remove(this);
+        Actions.EnemyDeath?.Invoke();
         //Animation
         Destroy(gameObject);
     }

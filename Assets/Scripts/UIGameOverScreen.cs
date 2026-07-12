@@ -11,7 +11,7 @@ public class UIGameOverScreen : MonoBehaviour
     [Header("References")] 
     [SerializeField] private Image _panel;
     [SerializeField] private Image _background;
-    [SerializeField] private List<Image> _buttons;
+    [SerializeField] private List<Image> _panels;
     [SerializeField] private TextMeshProUGUI _endText;
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private List<TextMeshProUGUI> _coloredText;
@@ -40,6 +40,10 @@ public class UIGameOverScreen : MonoBehaviour
         Time.timeScale = 1;
         _panel.transform.localScale = _initialPanelSize;
         _panel.transform.localPosition = _panelDirection * _panelOffset;
+        foreach (var button in _panels)
+        {
+            button.raycastTarget = false;
+        }
     }
     
     public void OnEnable()
@@ -59,9 +63,10 @@ public class UIGameOverScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 0;
         _panel.sprite = win ? _winPanel : _losePanel;
-        foreach (var button in _buttons)
+        foreach (var button in _panels)
         {
             button.sprite = win ? _winButton : _loseButton;
+            button.raycastTarget = true;
         }
         _endText.text = win ? _winString : _loseString;
         foreach (var text in _coloredText)

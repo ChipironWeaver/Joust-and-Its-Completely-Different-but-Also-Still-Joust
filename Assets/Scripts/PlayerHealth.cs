@@ -99,5 +99,20 @@ public class PlayerHealth : MonoBehaviour
         {
             Death();
         }
+        else if (collision.gameObject.CompareTag(_enemyTag))
+        {
+            AttackResult result = collision.gameObject.GetComponent<EnemyBehavior>().EnemyDuel(gameObject);
+            switch (result)
+            {
+                case AttackResult.Bounce:
+                    _rigidbody2D.linearVelocityX = -_playerController.velocityMemory.x * (_playerController.bounceForce / 100);
+                    break;
+                case AttackResult.EnemyDeath:
+                    break;
+                case AttackResult.PlayerDeath:
+                    Death();
+                    break;
+            }
+        }
     }
 }
