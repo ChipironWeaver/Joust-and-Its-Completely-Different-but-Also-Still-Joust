@@ -244,6 +244,7 @@ MonoBehaviour:
   hazardTag: Hazard
   isActive: 0
   _pointAmount: 0
+  _spawnInvulnerabilityTime: 0.25
   _enemySpawnTime: 5
   _spawnEvent:
     m_PersistentCalls:
