@@ -61,12 +61,25 @@ public class LevelManager : MonoBehaviour
     
     public void RegisterPlayer(PlayerHealth player)
     {
-        if (InformationHolder.NumberOfPlayers != -1 && InformationHolder.NumberOfPlayers == players.Count)
+        if (InformationHolder.NumberOfPlayers != -1)
         {
-            Destroy(player.gameObject);
-            return;
+            if (players.Contains(player))
+            {
+                if (players.IndexOf(player) >= InformationHolder.NumberOfPlayers)
+                {
+                    Destroy(player.gameObject);
+                    return;
+                }
+            }
+            else if (InformationHolder.NumberOfPlayers == players.Count)
+            {
+                Destroy(player.gameObject);
+                return;
+            }
+            else players.Add(player);
         }
-        players.Add(player);
+        else if (!players.Contains(player)) players.Add(player);
+        
         player.transform.SetParent(_playerGo.transform);
     }
 
