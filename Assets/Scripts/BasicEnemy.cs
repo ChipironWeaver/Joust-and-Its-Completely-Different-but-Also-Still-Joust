@@ -29,6 +29,7 @@ public class BasicEnemy : EnemyBehavior
     [SerializeField] private float _wallCastDistance;
     [Header("On Death Effect")]
     [SerializeField] private UnityEvent _onDeathEvent;
+    [SerializeField] private int _pointAmount;
     public float bounceForce;
     private float _horizontalInput;
     private Rigidbody2D _rigidbody2D;
@@ -55,6 +56,7 @@ public class BasicEnemy : EnemyBehavior
         float heightDifference = player.transform.position.y - transform.position.y;
         if (heightDifference > _enemyDeathHeight)
         {
+            player.GetComponent<PlayerScoreController>().AddScore(_pointAmount,transform.position);
             Death();
             return AttackResult.EnemyDeath;
         }

@@ -42,7 +42,6 @@ public class WaveManager : MonoBehaviour
 
     private void TryWaves()
     {
-        print((enemiesToSpawn == 0)+ " : " +(LevelManager.Instance.enemies.Count == 0));
         if (enemiesToSpawn == 0 && LevelManager.Instance.enemies.Count == 0)
         {
             StartWave();

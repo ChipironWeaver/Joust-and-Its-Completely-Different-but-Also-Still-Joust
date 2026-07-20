@@ -186,6 +186,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _pointAmount: 300
   bounceForce: 80
 --- !u!50 &2762936669658460359
 Rigidbody2D:

@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
     public List<EnemyBehavior> enemies;
     public List<PlayerHealth> players;
     public List<SpawnPoint> spawnPoints;
+    public List<int> playerScores;
     
     private GameObject _playerGo;
     private GameObject _enemiesGo;
@@ -67,6 +68,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (players.IndexOf(player) >= InformationHolder.NumberOfPlayers)
                 {
+                    players.Remove(player);
                     Destroy(player.gameObject);
                     return;
                 }

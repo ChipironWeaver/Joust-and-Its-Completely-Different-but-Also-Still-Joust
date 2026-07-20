@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   hazardTag: Hazard
   isActive: 0
-  _pointAmount: 0
+  _pointAmount: 300
   _spawnInvulnerabilityTime: 0.1
   _enemySpawnTime: 5
   _spawnEvent:

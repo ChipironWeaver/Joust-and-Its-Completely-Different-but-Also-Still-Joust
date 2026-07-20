@@ -33,8 +33,8 @@ public class EggBehavior : EnemyBehavior
         if(_lifeTime >= _spawnInvulnerabilityTime)
         {
             Death();
+            player.GetComponent<PlayerScoreController>().AddScore(_pointAmount,transform.position);
             return AttackResult.EnemyDeath;
-            //Give points
         }
         return AttackResult.None;
     }
