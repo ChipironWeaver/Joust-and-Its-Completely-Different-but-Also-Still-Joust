@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerCatWalk
+  m_Name: PlayerDogJump
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -28927654, guid: 46a42547fbb459a45b390ade9f49a61e, type: 3}
-    - time: 0.25
-      value: {fileID: 277232779, guid: 46a42547fbb459a45b390ade9f49a61e, type: 3}
-    - time: 0.5
-      value: {fileID: -28927654, guid: 46a42547fbb459a45b390ade9f49a61e, type: 3}
+      value: {fileID: -1016435486, guid: 6dc0e3e85a392e94e886c22a4c96c923, type: 3}
+    - time: 0.083333336
+      value: {fileID: 974087110, guid: 6dc0e3e85a392e94e886c22a4c96c923, type: 3}
+    - time: 0.16666667
+      value: {fileID: -1366630498, guid: 6dc0e3e85a392e94e886c22a4c96c923, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -28927654, guid: 46a42547fbb459a45b390ade9f49a61e, type: 3}
-    - {fileID: 277232779, guid: 46a42547fbb459a45b390ade9f49a61e, type: 3}
-    - {fileID: -28927654, guid: 46a42547fbb459a45b390ade9f49a61e, type: 3}
+    - {fileID: -1016435486, guid: 6dc0e3e85a392e94e886c22a4c96c923, type: 3}
+    - {fileID: 974087110, guid: 6dc0e3e85a392e94e886c22a4c96c923, type: 3}
+    - {fileID: -1366630498, guid: 6dc0e3e85a392e94e886c22a4c96c923, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.18333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

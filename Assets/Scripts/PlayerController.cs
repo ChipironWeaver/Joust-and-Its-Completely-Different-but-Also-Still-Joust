@@ -29,11 +29,14 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector2 velocityMemory;
     private bool _isGrounded;
     private bool _isSelfStoping;
+    
     private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
 
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
     
     void FixedUpdate()
@@ -81,6 +84,10 @@ public class PlayerController : MonoBehaviour
         }
         
         velocityMemory = _rigidbody2D.linearVelocity;
+        
+        _animator.SetBool("Ground", _isGrounded);
+        _animator.SetFloat("Horizontal", _horizontalInput);
+        _animator.SetFloat("Vertical", velocityMemory.y);
     }
 
     void OnMove(InputValue value)
@@ -95,6 +102,7 @@ public class PlayerController : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (!isActive) return;
+        _animator.SetTrigger("Jump");
         if (IsGrounded())
         {
             _rigidbody2D.AddForce(Vector2.up * _groundJumpForce, ForceMode2D.Impulse);
