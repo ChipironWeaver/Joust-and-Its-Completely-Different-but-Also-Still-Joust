@@ -3025,6 +3025,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 656076167434606186, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7755e4bf050614440ab443c0b7fa63db, type: 2}
+    - target: {fileID: 656076167434606186, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2115608788020031287, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
       propertyPath: _renderer
       value: 
