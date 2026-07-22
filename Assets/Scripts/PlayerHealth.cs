@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using NaughtyAttributes;
 
@@ -9,11 +10,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField,Tag] private string _enemyTag;
     [SerializeField,Tag] private string _hazardTag;
     [SerializeField] private HeartRenderer _renderer;
+    [Header("Animation")]
+    [SerializeField] private float _deathTime;
+    [SerializeField] private float _respawnTime;
     
     public bool isActive;
     
     private Rigidbody2D _rigidbody2D;
     private PlayerController _playerController;
+    private Animator _animator;
 
     private void OnDestroy()
     {
@@ -23,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     {
         LevelManager.Instance.RegisterPlayer(this);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
         _health = _maxHealth;
         _renderer.UpdateHearts(_health);
@@ -33,12 +39,18 @@ public class PlayerHealth : MonoBehaviour
     {
         _health--;
         _renderer.UpdateHearts(_health);
-        if (_health > 0)
+        _animator.SetTrigger("Death");
+        Sequence seq = DOTween.Sequence();
+        seq.AppendInterval(_deathTime);
+        seq.OnComplete(() =>
         {
-            Respawn();
-            return;
-        }
-        PermaDeath();
+            if (_health > 0)
+            {
+                Respawn();
+                return;
+            }
+            PermaDeath();
+        });
     }
 
     private void Respawn()
@@ -46,8 +58,15 @@ public class PlayerHealth : MonoBehaviour
         Actions.PlayerRespawn?.Invoke();
         LevelManager.Instance.Spawn(gameObject);
         SetActivation(false);
-        //Respawn stuff
-        SetActivation(true);
+        _rigidbody2D.linearVelocity = Vector2.zero;
+        _animator.SetTrigger("Respawn");
+        Sequence seq = DOTween.Sequence();
+        seq.AppendInterval(_respawnTime);
+        seq.OnComplete(() =>
+        {
+            SetActivation(true);
+        });
+        
     }
 
     [Button]
@@ -62,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
     private void SetActivation(bool isSetActive)
     {
         isActive = isSetActive;
+        print(isActive);
         _playerController.isActive = isSetActive;
         _rigidbody2D.constraints = !isActive?  RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
         if (!isSetActive) _rigidbody2D.linearVelocity = Vector2.zero;

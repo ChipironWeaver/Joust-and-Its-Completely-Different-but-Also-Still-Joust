@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8644794838340971854}
   - component: {fileID: 2762936669658460359}
   - component: {fileID: -8303095460031572001}
+  - component: {fileID: 2817254476759646557}
   m_Layer: 0
   m_Name: Weak_Enemies
   m_TagString: Enemy
@@ -85,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.5372549, g: 0.47858247, b: 0, a: 1}
+  m_Sprite: {fileID: 7963928528761619113, guid: 07fa97e72a490aa4999c32121142bdcc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -187,6 +188,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _pointAmount: 100
+  _deathTime: 0.5
+  _respawnTime: 1
   bounceForce: 80
 --- !u!50 &2762936669658460359
 Rigidbody2D:
@@ -237,3 +240,25 @@ MonoBehaviour:
   _launchDirection: {x: 0, y: -1}
   _registerInEnemies: 1
   _spawnAsEnemy: 0
+--- !u!95 &2817254476759646557
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649713570011417237}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a36097fe1c47ba74da9aa4520f6f5b5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

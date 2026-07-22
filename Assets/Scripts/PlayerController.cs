@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         velocityMemory = _rigidbody2D.linearVelocity;
         
         _animator.SetBool("Ground", _isGrounded);
-        _animator.SetFloat("Horizontal", _horizontalInput);
+        _animator.SetFloat("Horizontal", MathF.Abs( _horizontalInput));
         _animator.SetFloat("Vertical", velocityMemory.y);
     }
 

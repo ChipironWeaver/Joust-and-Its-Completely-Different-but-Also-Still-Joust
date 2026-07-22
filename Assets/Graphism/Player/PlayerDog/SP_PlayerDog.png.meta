@@ -335,6 +335,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SP_PlayerDog_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81ac583e35433a42a0e101cb328b607
+      internalID: 1606088196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -353,6 +375,7 @@ TextureImporter:
     nameFileIdTable:
       SP_PlayerDog_0: 3120185449386951477
       SP_PlayerDog_1: 2130019160132498964
+      SP_PlayerDog_10: 1606088196
       SP_PlayerDog_2: -293390189
       SP_PlayerDog_3: 1098177419
       SP_PlayerDog_4: 974087110

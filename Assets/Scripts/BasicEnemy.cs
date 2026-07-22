@@ -30,6 +30,9 @@ public class BasicEnemy : EnemyBehavior
     [Header("On Death Effect")]
     [SerializeField] private UnityEvent _onDeathEvent;
     [SerializeField] private int _pointAmount;
+    [Header("Animation")]
+    [SerializeField] private float _deathTime;
+    [SerializeField] private float _respawnTime;
     public float bounceForce;
     private float _horizontalInput;
     private Rigidbody2D _rigidbody2D;
@@ -37,6 +40,8 @@ public class BasicEnemy : EnemyBehavior
     private Vector2 _velocityMemory;
     private float _jumpCooldown;
     private float _currentJumpCooldown;
+    
+    private Animator _animator;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,6 +51,7 @@ public class BasicEnemy : EnemyBehavior
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _horizontalInput = Random.Range(0, 1) * 2 - 1;
         _jumpCooldown = 2;
         Spawn();
@@ -77,9 +83,9 @@ public class BasicEnemy : EnemyBehavior
         _onDeathEvent?.Invoke();
         LevelManager.Instance.enemies.Remove(this);
         Actions.EnemyDeath?.Invoke();
-        
+        _animator.SetTrigger("Death");
         Sequence deathSequence = DOTween.Sequence();
-        deathSequence.AppendInterval(0.5f);
+        deathSequence.AppendInterval(_deathTime);
         deathSequence.OnComplete(() =>
             {
                 Destroy(gameObject);
@@ -90,8 +96,16 @@ public class BasicEnemy : EnemyBehavior
 
     public override void Spawn()
     {
-        //play respawn animation + queue the activation
-        isActive = true;
+        isActive = false;
+        _rigidbody2D.linearVelocity = Vector2.zero;
+        _animator.SetTrigger("Respawn");
+        Sequence seq = DOTween.Sequence();
+        seq.AppendInterval(_respawnTime);
+        seq.OnComplete(() =>
+        {
+            isActive = true;
+        });
+        
     }
     void FixedUpdate()
     {
@@ -114,6 +128,10 @@ public class BasicEnemy : EnemyBehavior
                 * _horizontalInput * _maxSpeed * Time.fixedDeltaTime, -_maxSpeed, _maxSpeed);
         
         _velocityMemory = _rigidbody2D.linearVelocity;
+        
+        _animator.SetBool("Ground", _isGrounded);
+        _animator.SetFloat("Horizontal", MathF.Abs( _horizontalInput));
+        _animator.SetFloat("Vertical", _velocityMemory.y);
     }
 
     public void HorizontalBounce()
@@ -123,6 +141,7 @@ public class BasicEnemy : EnemyBehavior
     }
     void Jump()
     {
+        _animator.SetTrigger("Jump");
         if (IsGrounded())
         {
             _rigidbody2D.AddForce(Vector2.up * _groundJumpForce, ForceMode2D.Impulse);
