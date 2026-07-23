@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6099207863132706059
+--- !u!114 &-6603207436410169453
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,28 +20,25 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dither
-  m_Shader: {fileID: -6465566751694194690, guid: 27dfc6abe4fdd55499373fb6a870036a, type: 3}
+  m_Name: LavaMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 0affb2282d818c64ca6908ae8ace3f9a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Texture2D:
-        m_Texture: {fileID: 8400000, guid: aa13d593592dccc4595880755b095d97, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_41393130240343bca51b5fc309adc24c_Out_0_Texture2D:
-        m_Texture: {fileID: 8400000, guid: aa13d593592dccc4595880755b095d97, type: 2}
+    - _MainTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -58,14 +55,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorBoost: 0.5
-    - _ColorResolution: 8
-    - _DitherSpread: 0.075
-    - _DitherTiling: 320
-    - _TargetHeight: 2160
+    - _CellDensity: 20
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Speed: 0.75
+    - _Strengh: 0.1
     m_Colors:
-    - White: {r: 1, g: 1, b: 1, a: 1}
-    - _DitherOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _TargetResolution: {r: 320, g: 240, b: 0, a: 0}
+    - _Highlight: {r: 1, g: 0.5890854, b: 0.14622638, a: 1}
+    - _Shadow: {r: 0.735849, g: 0.19903752, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

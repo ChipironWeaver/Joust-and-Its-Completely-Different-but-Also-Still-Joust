@@ -46,10 +46,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _CellDensity: 1
+    - _GradientScale: 3
     - _Opacity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _SphereStrength: 5
+    - _TimeMultiplier: 0.04
+    m_Colors:
+    - _GradientMoveDirection: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3634366382781120004
