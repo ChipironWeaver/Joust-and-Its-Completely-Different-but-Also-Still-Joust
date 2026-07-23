@@ -4925,10 +4925,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RespawnPlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 5244970585624896366, guid: 8bac0e32a0ae2484290577dd139aa93f, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 537949247088870085}
   - component: {fileID: 5244970585624896366}
   - component: {fileID: 6606132935617523389}
+  - component: {fileID: 926566616547446429}
   m_Layer: 0
   m_Name: RespawnPlatform
   m_TagString: Untagged
@@ -80,9 +81,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -806782035, guid: 3d94ec5096cde31498e41d30fff34f8c, type: 3}
+  m_Sprite: {fileID: -7021257625224489740, guid: 8c706175e8a63714e9b6cf486f9725e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,3 +105,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e277409a7462beb498bcda9b61732c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!95 &926566616547446429
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220906579461463399}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcae0fdc1efc48e4aa37b94ffd831cc4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
