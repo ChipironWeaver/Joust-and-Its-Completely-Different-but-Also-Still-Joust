@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_isGrounded)
             {
-                if (_horizontalInputMemory != MathF.Sign(_rigidbody2D.linearVelocityX))
+                if (!Mathf.Approximately(_horizontalInputMemory, MathF.Sign(_rigidbody2D.linearVelocityX)))
                 {
                     _isSelfStoping = true;
                 }

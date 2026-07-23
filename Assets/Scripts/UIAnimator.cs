@@ -54,7 +54,6 @@ public class UIAnimator : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         isInAnimation = !isInAnimation;
-        print(isInAnimation);
     }
     [Button]
     public void Back()
