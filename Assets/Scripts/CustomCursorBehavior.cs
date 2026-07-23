@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class CustomCursorBehavior : MonoBehaviour
 {
+    public CursorType defaultCursor = CursorType.Normal;
+    
     [SerializeField] private Texture2D _normal;
     [SerializeField] private Texture2D _normalPressed;
     [SerializeField] private Texture2D _hover;
@@ -60,7 +62,7 @@ public class CustomCursorBehavior : MonoBehaviour
     void OnEnable()
     {
         Singleton();
-        SetCursor(CursorType.Normal);
+        SetCursor(defaultCursor);
     }
     
     public static CustomCursorBehavior Instance{ get; private set; }
