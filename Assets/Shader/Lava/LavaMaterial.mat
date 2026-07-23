@@ -58,10 +58,10 @@ Material:
     - _CellDensity: 20
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.75
-    - _Strengh: 0.1
+    - _Speed: 1
+    - _Strengh: 0.15
     m_Colors:
-    - _Highlight: {r: 1, g: 0.5890854, b: 0.14622638, a: 1}
+    - _Highlight: {r: 0.9528302, g: 0.53502893, b: 0.085395135, a: 1}
     - _Shadow: {r: 0.735849, g: 0.19903752, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
