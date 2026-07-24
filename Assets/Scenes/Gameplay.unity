@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -25}
+  m_AnchoredPosition: {x: 110, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200487552
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acbb2d92826aba04c82725db7a7ebc45, type: 2}
   m_sharedMaterial: {fileID: 6349370797763731684, guid: acbb2d92826aba04c82725db7a7ebc45, type: 2}
@@ -735,10 +735,10 @@ MonoBehaviour:
   _panelOffset: 0
   _panelDirection: {x: 0, y: 1, z: 0}
   _panelEase: 6
-  _winPanel: {fileID: 277230724218620603, guid: cf45baec836779241ad1d25884993c40, type: 3}
-  _losePanel: {fileID: -7814502606264434837, guid: cf45baec836779241ad1d25884993c40, type: 3}
-  _winButton: {fileID: 2760964143567815706, guid: cf45baec836779241ad1d25884993c40, type: 3}
-  _loseButton: {fileID: -3066374704231091799, guid: cf45baec836779241ad1d25884993c40, type: 3}
+  _winPanel: {fileID: 850325416, guid: e5b802d3a454b5d4bacbdcf2a4323a76, type: 3}
+  _losePanel: {fileID: 3385754308859886376, guid: e5b802d3a454b5d4bacbdcf2a4323a76, type: 3}
+  _winButton: {fileID: 1984679836, guid: e5b802d3a454b5d4bacbdcf2a4323a76, type: 3}
+  _loseButton: {fileID: -671069197, guid: e5b802d3a454b5d4bacbdcf2a4323a76, type: 3}
   _winString: You Won!
   _loseString: You Lost!
   _wavePrefix: "You Made It \nTo Wave:"
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4445,7 +4445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -25}
+  m_AnchoredPosition: {x: -110, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649869628
@@ -4899,7 +4899,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 5333718629015615516}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -4907,7 +4907,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
+  m_UpdateRectTransformForStandalone: 1
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
