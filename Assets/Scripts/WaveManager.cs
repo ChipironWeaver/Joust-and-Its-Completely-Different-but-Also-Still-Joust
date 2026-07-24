@@ -51,7 +51,6 @@ public class WaveManager : MonoBehaviour
     }
     private void StartWave()
     {
-        _backgroundMaterialChanger.ApplyColorsOnMaterial(Random.Range(1,_backgroundMaterialChanger.backgroundColors.Count));
         currentWave ++;
         if (currentWave > _maxWave)
         {
@@ -59,6 +58,7 @@ public class WaveManager : MonoBehaviour
             return;
         }
         Actions.WaveStart?.Invoke();
+        _backgroundMaterialChanger.ApplyColorsOnMaterial(Random.Range(1,_backgroundMaterialChanger.backgroundColors.Count));
         enemiesToSpawn = ChipironUtility.RandomRound(ChipironUtility.EvaluateVector2( _enemyCountRange,  _enemyCountCurve.Evaluate(currentWave / (float)_maxWave)));
         Invoke(nameof(SpawnEnemy), _waveCooldown);
     }
