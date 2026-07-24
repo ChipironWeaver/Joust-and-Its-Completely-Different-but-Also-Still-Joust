@@ -5,6 +5,7 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -29,7 +30,6 @@ public class UIAnimator : MonoBehaviour
 
     public void Fade(int baseIndex)
     {
-        
         int index = Mathf.Abs(baseIndex);
         if(isInAnimation || _activeIndexList.Contains(index)) return;
         if(_animationGroups[index].soloOnScreen)
@@ -72,6 +72,7 @@ public class UIAnimator : MonoBehaviour
         public List<Image> buttonToDisable = new List<Image>();
         public AnimationObject singleAnimationObject;
         public AnimationObject[] animationObjects;
+        public UnityEvent onAnimationStart;
         public float Animate(bool isFadeOut = false)
         {
             foreach (Image button in buttonToDisable)
@@ -93,7 +94,7 @@ public class UIAnimator : MonoBehaviour
                 sequenceTime = singleAnimationObject.delay + singleAnimationObject.duration;
                 singleAnimationObject.Animate(isFadeOut);
             }
-            
+            onAnimationStart?.Invoke();
             return sequenceTime;
         }
     }
@@ -110,6 +111,8 @@ public class UIAnimator : MonoBehaviour
         public Ease easeType;
         public float duration;
         public float delay;
+        public UnityEvent onAnimationStart;
+        public UnityEvent onAnimationEnd;
         
         private Vector2 _basePosition;
         public void Animate(bool isFadeOut = false, float biggestDelay = 0)
@@ -132,6 +135,7 @@ public class UIAnimator : MonoBehaviour
             seq.AppendInterval( isFadeOut ? Mathf.Max(biggestDelay - (delay + duration),0) : delay);
             seq.Append(target.DOLocalMove(isFadeOut ? distance * direction + (useBaseTargetPosition ? _basePosition : targetPosition): useBaseTargetPosition ? _basePosition  : targetPosition, duration).SetEase(easeType)); 
             seq.Join(target.DOScale(isFadeOut ? baseScale : Vector2.one, duration).SetEase(easeType));
+            seq.JoinCallback(() => onAnimationStart?.Invoke());
             seq.OnComplete(() =>
             {
                 if (isFadeOut)
@@ -139,6 +143,7 @@ public class UIAnimator : MonoBehaviour
                     target.gameObject.SetActive(false);
                     target.localScale = Vector3.one;
                     target.localPosition = _basePosition;
+                    onAnimationEnd?.Invoke();
                 }
             });
         }

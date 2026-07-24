@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Background
+  m_Name: FlowyBackgroundMAT
   m_Shader: {fileID: -6465566751694194690, guid: f271312b003f2204a93ddc475e64f1e7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -20,7 +20,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _ColorMiddle _GradientMoveDirection
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -47,7 +47,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _CellDensity: 1
+    - _ColorMiddle: 0.442
     - _GradientScale: 3
+    - _ISMAINMENU: 0
     - _Opacity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -55,6 +57,9 @@ Material:
     - _TimeMultiplier: 0.04
     m_Colors:
     - _GradientMoveDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _HighColor: {r: 0, g: 0.23921569, b: 0.3019608, a: 1}
+    - _LowColor: {r: 0.06666666, g: 0.41568628, b: 0, a: 1}
+    - _MiddleColor: {r: 0, g: 0.18039216, b: 0.043137252, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3634366382781120004

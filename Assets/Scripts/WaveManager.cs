@@ -16,6 +16,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Vector2 _enemyCountRange;
     
     [SerializeField] private List<EnemyWeight> _enemyWeights;
+    
+    [SerializeField] private BackgroundMaterialChanger _backgroundMaterialChanger;
         
     public bool canSpawn = true;
     [ReadOnly] public int currentWave;
@@ -49,6 +51,7 @@ public class WaveManager : MonoBehaviour
     }
     private void StartWave()
     {
+        _backgroundMaterialChanger.ApplyColorsOnMaterial(Random.Range(1,_backgroundMaterialChanger.backgroundColors.Count));
         currentWave ++;
         if (currentWave > _maxWave)
         {
