@@ -75,6 +75,7 @@ public class UIAnimator : MonoBehaviour
         public UnityEvent onAnimationStart;
         public float Animate(bool isFadeOut = false)
         {
+            
             foreach (Image button in buttonToDisable)
             {
                 button.raycastTarget = !isFadeOut;
@@ -91,6 +92,7 @@ public class UIAnimator : MonoBehaviour
             }
             else
             {
+                DOTween.Kill(singleAnimationObject);
                 sequenceTime = singleAnimationObject.delay + singleAnimationObject.duration;
                 singleAnimationObject.Animate(isFadeOut);
             }
@@ -117,8 +119,8 @@ public class UIAnimator : MonoBehaviour
         private Vector2 _basePosition;
         public void Animate(bool isFadeOut = false, float biggestDelay = 0)
         {
+            DOTween.Kill(target);
             _basePosition = target.localPosition;
-            
             if (isFadeOut)
             {
                 if(!target.gameObject.activeSelf) return;
@@ -130,6 +132,7 @@ public class UIAnimator : MonoBehaviour
                 target.localScale = baseScale;
                 target.localPosition = distance * direction + (useBaseTargetPosition ? target.localPosition : targetPosition);
             }
+            
             Sequence seq = DOTween.Sequence();
             seq.SetUpdate(true);
             seq.AppendInterval( isFadeOut ? Mathf.Max(biggestDelay - (delay + duration),0) : delay);
@@ -138,13 +141,14 @@ public class UIAnimator : MonoBehaviour
             seq.JoinCallback(() => onAnimationStart?.Invoke());
             seq.OnComplete(() =>
             {
+                target.localScale = Vector3.one;
+                onAnimationEnd?.Invoke();
                 if (isFadeOut)
                 {
                     target.gameObject.SetActive(false);
-                    target.localScale = Vector3.one;
                     target.localPosition = _basePosition;
-                    onAnimationEnd?.Invoke();
                 }
+                else target.gameObject.SetActive(true);
             });
         }
     }
