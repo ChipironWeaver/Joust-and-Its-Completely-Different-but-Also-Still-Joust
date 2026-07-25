@@ -57,9 +57,9 @@ Material:
     - _TimeMultiplier: 0.04
     m_Colors:
     - _GradientMoveDirection: {r: 0, g: 1, b: 0, a: 0}
-    - _HighColor: {r: 0, g: 0.101947926, b: 0.27068934, a: 0.89643866}
-    - _LowColor: {r: 0, g: 0.37263724, b: 0.36209092, a: 0.89643866}
-    - _MiddleColor: {r: 0, g: 0.11249427, b: 0.1617105, a: 0.89643866}
+    - _HighColor: {r: 0.3019608, g: 0, b: 0.23137255, a: 1}
+    - _LowColor: {r: 0.2, g: 0, b: 0.41568628, a: 1}
+    - _MiddleColor: {r: 0.11372549, g: 0, b: 0.18039216, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3634366382781120004
