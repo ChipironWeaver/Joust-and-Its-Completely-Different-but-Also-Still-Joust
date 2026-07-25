@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX +( _isGrounded ? _groundAcceleration : _airAcceleration) /100 
                 * _horizontalInput * _maxSpeed * Time.fixedDeltaTime, -_maxSpeed, _maxSpeed);
         
-        
+        if(_rigidbody2D.linearVelocityX > _maxSpeed) _rigidbody2D.linearVelocityX = _maxSpeed;
 
         if (_horizontalInput == 0 && _horizontalInputMemory != 0)
         {
