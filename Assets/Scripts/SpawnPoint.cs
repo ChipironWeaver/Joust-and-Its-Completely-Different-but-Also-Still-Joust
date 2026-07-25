@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
+    [SerializeField] private GameObject particlePrefab;
     private Animator _animator;        
     void Start()
     {
@@ -12,5 +13,6 @@ public class SpawnPoint : MonoBehaviour
     public void Respawn()
     {
         _animator.SetTrigger("Respawn");
+        Instantiate(particlePrefab, transform.position, Quaternion.identity);
     }
 }
