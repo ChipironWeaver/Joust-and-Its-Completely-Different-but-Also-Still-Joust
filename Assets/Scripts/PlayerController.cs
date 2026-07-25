@@ -45,15 +45,22 @@ public class PlayerController : MonoBehaviour
         if(!isActive) return;
         _isGrounded = IsGrounded();
         
-        if (MathF.Abs(_rigidbody2D.linearVelocityX) < 0.01 && velocityMemory.x != 0 && IsNextToWall())
-            _rigidbody2D.linearVelocityX = -velocityMemory.x * (bounceForce / 100);
         
-        else if (_rigidbody2D.linearVelocityX < _maxSpeed) 
+        if (MathF.Abs(_rigidbody2D.linearVelocityY)  < 0.01 && velocityMemory.y > 0 && IsNextToWall())
+        {
+            Instantiate(_jumpParticles, transform.position,Quaternion.Euler(0f,0f,180f));
+            _rigidbody2D.linearVelocityY = -velocityMemory.y * (bounceForce / 100);
+        }
+        else if (MathF.Abs(_rigidbody2D.linearVelocityX) < 0.01 && velocityMemory.x != 0 && IsNextToWall())
+        {
+            _rigidbody2D.linearVelocityX = -velocityMemory.x * (bounceForce / 100);
+            Instantiate(_jumpParticles, transform.position, Quaternion.Euler(0f,0f, velocityMemory.x <0 ? 90f : -90f));
+        }
+        if (_rigidbody2D.linearVelocityX < _maxSpeed) 
             _rigidbody2D.linearVelocityX = Mathf.Clamp(_rigidbody2D.linearVelocityX +( _isGrounded ? _groundAcceleration : _airAcceleration) /100 
                 * _horizontalInput * _maxSpeed * Time.fixedDeltaTime, -_maxSpeed, _maxSpeed);
         
-        if (MathF.Abs(_rigidbody2D.linearVelocityY)  < 0.01 && velocityMemory.y > 0 && IsNextToWall())
-            _rigidbody2D.linearVelocityY = -velocityMemory.y * (bounceForce / 100);
+        
 
         if (_horizontalInput == 0 && _horizontalInputMemory != 0)
         {

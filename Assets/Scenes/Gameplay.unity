@@ -1770,11 +1770,11 @@ PrefabInstance:
       objectReference: {fileID: 1649869628}
     - target: {fileID: 7840665332433790889, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.769
+      value: -23.562
       objectReference: {fileID: 0}
     - target: {fileID: 7840665332433790889, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.055
       objectReference: {fileID: 0}
     - target: {fileID: 7840665332433790889, guid: 657aca66086104f4fb611ed7b184fd31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10967,8 +10967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UISceneTransitionLoader
   _autoFadeIn: 1
-  _fadeColor: {r: 0.29803923, g: 0, b: 0.49019608, a: 1}
-  _fadeDuration: 1
+  _fadeColor: {r: 0.29803923, g: 0, b: 0.49019608, a: 0}
+  _fadeDuration: 1.5
 --- !u!114 &2142786647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10982,7 +10982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.29803923, g: 0, b: 0.49019608, a: 0}
+  m_Color: {r: 0.29803923, g: 0, b: 0.49019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
