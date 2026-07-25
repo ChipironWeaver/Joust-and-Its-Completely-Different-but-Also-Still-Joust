@@ -68,12 +68,12 @@ public class BasicEnemy : EnemyBehavior
             Death();
             return AttackResult.EnemyDeath;
         }
-        HorizontalBounce();
-        Jump();
         if (heightDifference < _playerDeathHeight)
         {
             return AttackResult.PlayerDeath;
         }
+        HorizontalBounce();
+        Jump();
         return AttackResult.Bounce;
     }
 
@@ -123,7 +123,10 @@ public class BasicEnemy : EnemyBehavior
             Jump();
         }
         if (MathF.Abs(_rigidbody2D.linearVelocityY)  < 0.01 && _velocityMemory.y > 0 && IsNextToWall())
+        {
+            Instantiate(_jumpParticles, transform.position,Quaternion.Euler(0f,0f,180f));
             _rigidbody2D.linearVelocityY = -_velocityMemory.y * (bounceForce / 100);
+        }
         if (MathF.Abs(_rigidbody2D.linearVelocityX) < 0.01 && _velocityMemory.x != 0 && IsNextToWall())
             HorizontalBounce();
         else if (_rigidbody2D.linearVelocityX < _maxSpeed) 
@@ -139,6 +142,7 @@ public class BasicEnemy : EnemyBehavior
 
     public void HorizontalBounce()
     {
+        Instantiate(_jumpParticles, transform.position, Quaternion.Euler(0f,0f, _velocityMemory.x <0 ? 90f : -90f));
         _rigidbody2D.linearVelocityX = -_velocityMemory.x * (bounceForce / 100);
         _horizontalInput *= -1;
     }

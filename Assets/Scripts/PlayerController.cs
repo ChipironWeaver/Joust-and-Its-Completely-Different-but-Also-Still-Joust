@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Settings")]
     [SerializeField] private float _groundJumpForce;
     [SerializeField] private float _fapForce;
-    [SerializeField] private GameObject _jumpParticles;
+    [SerializeField] public GameObject _jumpParticles;
     [Header("Ground Check Settings")]
     [SerializeField] private Vector2 _groundBoxSize;
     [SerializeField] private float _groundCastDistance;

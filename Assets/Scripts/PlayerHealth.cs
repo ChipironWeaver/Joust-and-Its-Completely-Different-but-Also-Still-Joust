@@ -126,6 +126,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 case AttackResult.Bounce:
                     _rigidbody2D.linearVelocityX = -_playerController.velocityMemory.x * (_playerController.bounceForce / 100);
+                    Instantiate(_playerController._jumpParticles, transform.position, Quaternion.Euler(0f,0f, _playerController.velocityMemory.x <0 ? 90f : -90f));
                     break;
                 case AttackResult.EnemyDeath:
                     break;
