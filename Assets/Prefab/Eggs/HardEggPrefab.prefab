@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3146392803949937440}
   - component: {fileID: 8673685093655886058}
   - component: {fileID: 5654651353227792542}
-  - component: {fileID: 3889344817168283196}
   - component: {fileID: 2951012309793679471}
   - component: {fileID: 5909038877864462442}
   - component: {fileID: 9032857446309645820}
+  - component: {fileID: 7757308560603233824}
   m_Layer: 0
   m_Name: HardEggPrefab
   m_TagString: Enemy
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6890655611101129632, guid: 44bf3ed087f946e40adaacb1211a9fd8, type: 3}
-  m_Color: {r: 1, g: 0.5814287, b: 0.56078434, a: 1}
+  m_Sprite: {fileID: 7758220829244438161, guid: e091651366566084eae4d051ecd3f3d1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,66 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &3889344817168283196
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7504543119071651597}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.67142856, y: 0.85714287}
-    newSize: {x: 1.88, y: 2.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.1, y: -0.4107143}
-      - {x: 0.2642857, y: -0.30357143}
-      - {x: 0.32857144, y: -0.13928571}
-      - {x: 0.31071427, y: 0.07857143}
-      - {x: 0.22857143, y: 0.2642857}
-      - {x: 0.092857145, y: 0.39642859}
-      - {x: -0.007142857, y: 0.425}
-      - {x: -0.14285715, y: 0.37142858}
-      - {x: -0.275, y: 0.19285715}
-      - {x: -0.33571428, y: -0.05}
-      - {x: -0.30357143, y: -0.21428572}
-      - {x: -0.23571429, y: -0.32857144}
-      - {x: -0.12142857, y: -0.39285713}
-  m_UseDelaunayMesh: 1
 --- !u!114 &2951012309793679471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +215,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.67142856, y: 0.85714287}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.88, y: 2.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -283,3 +223,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 1}
   m_EdgeRadius: 0
+--- !u!60 &7757308560603233824
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504543119071651597}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1.88, y: 2.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.25, y: -0.4375}
+      - {x: 0.375, y: -0.25}
+      - {x: 0.375, y: 0.0625}
+      - {x: 0.3125, y: 0.25}
+      - {x: 0.1875, y: 0.4375}
+      - {x: 0, y: 0.5}
+      - {x: -0.1875, y: 0.4375}
+      - {x: -0.3125, y: 0.25}
+      - {x: -0.375, y: 0.0625}
+      - {x: -0.375, y: -0.25}
+      - {x: -0.25, y: -0.4375}
+      - {x: -0.125, y: -0.5}
+      - {x: 0.125, y: -0.5}
+  m_UseDelaunayMesh: 1
