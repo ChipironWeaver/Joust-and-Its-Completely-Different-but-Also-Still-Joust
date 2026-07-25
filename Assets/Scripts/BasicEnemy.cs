@@ -33,6 +33,8 @@ public class BasicEnemy : EnemyBehavior
     [Header("Animation")]
     [SerializeField] private float _deathTime;
     [SerializeField] private float _respawnTime;
+    [SerializeField] private GameObject _deathParticles;
+    [SerializeField] private GameObject _jumpParticles;
     public float bounceForce;
     private float _horizontalInput;
     private Rigidbody2D _rigidbody2D;
@@ -79,6 +81,7 @@ public class BasicEnemy : EnemyBehavior
     {
         isActive = false;
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        Instantiate(_deathParticles, transform.position, Quaternion.identity);
         GetComponent<BoxCollider2D>().isTrigger = true;
         _onDeathEvent?.Invoke();
         LevelManager.Instance.enemies.Remove(this);
@@ -142,6 +145,7 @@ public class BasicEnemy : EnemyBehavior
     void Jump()
     {
         _animator.SetTrigger("Jump");
+        Instantiate(_jumpParticles, transform.position, Quaternion.identity);
         if (IsGrounded())
         {
             _rigidbody2D.AddForce(Vector2.up * _groundJumpForce, ForceMode2D.Impulse);

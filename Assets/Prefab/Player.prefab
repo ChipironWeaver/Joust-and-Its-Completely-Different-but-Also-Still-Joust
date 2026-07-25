@@ -218,6 +218,7 @@ MonoBehaviour:
   _airAcceleration: 50
   _groundJumpForce: 8
   _fapForce: 4
+  _jumpParticles: {fileID: 83987310152674208, guid: 008e6707e0a80b14597b9853e3b2b5e3, type: 3}
   _groundBoxSize: {x: 0.8, y: 0.1}
   _groundCastDistance: 0.5
   _groundLayer:
@@ -245,8 +246,9 @@ MonoBehaviour:
   _enemyTag: Enemy
   _hazardTag: Hazard
   _renderer: {fileID: 0}
-  _deathTime: 0.3
-  _respawnTime: 0.4
+  _deathTime: 1.2
+  _respawnTime: 0.5
+  _deathParticles: {fileID: 4654502187078096977, guid: 2bf3d1bfa2d279d49b2ef76f8049da3c, type: 3}
   isActive: 0
 --- !u!114 &5510215683614336114
 MonoBehaviour:

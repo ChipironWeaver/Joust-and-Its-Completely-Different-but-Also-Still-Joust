@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private float _deathTime;
     [SerializeField] private float _respawnTime;
+    [SerializeField] private GameObject _deathParticles;
     
     public bool isActive;
     
@@ -39,7 +40,9 @@ public class PlayerHealth : MonoBehaviour
     {
         _health--;
         _renderer.UpdateHearts(_health);
+        SetActivation(false);
         _animator.SetTrigger("Death");
+        Instantiate(_deathParticles, transform.position, Quaternion.identity);
         Sequence seq = DOTween.Sequence();
         seq.AppendInterval(_deathTime);
         seq.OnComplete(() =>
@@ -57,7 +60,6 @@ public class PlayerHealth : MonoBehaviour
     {
         Actions.PlayerRespawn?.Invoke();
         LevelManager.Instance.Spawn(gameObject);
-        SetActivation(false);
         _rigidbody2D.linearVelocity = Vector2.zero;
         _animator.SetTrigger("Respawn");
         Sequence seq = DOTween.Sequence();
@@ -72,7 +74,6 @@ public class PlayerHealth : MonoBehaviour
     [Button]
     private void PermaDeath()
     {
-        Debug.Log("PermaDeath");
         Actions.PlayerDeath?.Invoke();
         LevelManager.Instance.RemovePlayer(this);
         SetActivation(false);
@@ -81,7 +82,6 @@ public class PlayerHealth : MonoBehaviour
     private void SetActivation(bool isSetActive)
     {
         isActive = isSetActive;
-        print(isActive);
         _playerController.isActive = isSetActive;
         _rigidbody2D.constraints = !isActive?  RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
         if (!isSetActive) _rigidbody2D.linearVelocity = Vector2.zero;

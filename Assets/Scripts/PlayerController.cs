@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Settings")]
     [SerializeField] private float _groundJumpForce;
     [SerializeField] private float _fapForce;
+    [SerializeField] private GameObject _jumpParticles;
     [Header("Ground Check Settings")]
     [SerializeField] private Vector2 _groundBoxSize;
     [SerializeField] private float _groundCastDistance;
@@ -103,9 +104,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!isActive) return;
         _animator.SetTrigger("Jump");
+        Instantiate(_jumpParticles, transform.position, Quaternion.identity);
         if (IsGrounded())
         {
-            _rigidbody2D.AddForce(Vector2.up * _groundJumpForce, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.up * _groundJumpForce, ForceMode2D.Impulse); 
         }
         else
         {

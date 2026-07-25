@@ -190,6 +190,8 @@ MonoBehaviour:
   _pointAmount: 100
   _deathTime: 0.5
   _respawnTime: 1
+  _deathParticles: {fileID: 4654502187078096977, guid: 4af20390d1aee3142881f83ab64dbcb5, type: 3}
+  _jumpParticles: {fileID: 83987310152674208, guid: e77fafda279d27445876d001db2ef4c2, type: 3}
   bounceForce: 80
 --- !u!50 &2762936669658460359
 Rigidbody2D:
