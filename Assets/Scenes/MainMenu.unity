@@ -1335,7 +1335,7 @@ PrefabInstance:
     - target: {fileID: 1266748681915940071, guid: 89fea907205b17c4088c683d326596fa, type: 3}
       propertyPath: '_music.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: e95a76e08c8e7e144b9dbb90fe562793, type: 3}
+      objectReference: {fileID: 8300000, guid: 126dc7585e2bfea418df504d655b5db5, type: 3}
     - target: {fileID: 2027990391551270989, guid: 89fea907205b17c4088c683d326596fa, type: 3}
       propertyPath: m_TargetGraphic
       value: 
