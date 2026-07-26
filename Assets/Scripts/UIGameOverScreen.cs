@@ -1,10 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Core;
 using NaughtyAttributes;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 public class UIGameOverScreen : MonoBehaviour
 {
@@ -12,6 +15,7 @@ public class UIGameOverScreen : MonoBehaviour
     [SerializeField] private Image _panel;
     [SerializeField] private Image _background;
     [SerializeField] private List<Image> _panels;
+    [SerializeField] private List<Image> _panelsWithMaterial;
     [SerializeField] private TextMeshProUGUI _endText;
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private List<TextMeshProUGUI> _coloredText;
@@ -34,7 +38,9 @@ public class UIGameOverScreen : MonoBehaviour
     [SerializeField] private Color _loseTextColor;
     [SerializeField] private Color _winBackgroundColor;
     [SerializeField] private Color _loseBackgroundColor;
-
+    [SerializeField] private Material _winMaterial;
+    [SerializeField] private Material _loseMaterial;
+    
     private void Start()
     {
         Time.timeScale = 1;
@@ -44,6 +50,7 @@ public class UIGameOverScreen : MonoBehaviour
         {
             button.raycastTarget = false;
         }
+        StartCoroutine(TimeLoop());
     }
     
     public void OnEnable()
@@ -75,10 +82,25 @@ public class UIGameOverScreen : MonoBehaviour
         }
         _waveText.text = _wavePrefix + WaveManager.Instance.currentWave;
 
+        foreach (Image panel in _panelsWithMaterial)
+        {
+            panel.material = win ? _winMaterial : _loseMaterial;
+        }
+        
         Sequence fadeInSequence = DOTween.Sequence();
         fadeInSequence.SetUpdate(true);
         fadeInSequence.Append(_background.DOColor(win ? _winBackgroundColor : _loseBackgroundColor, _fadeInDuration));
         fadeInSequence.Join(_panel.transform.DOScale(Vector3.one, _fadeInDuration));
         fadeInSequence.Join(_panel.rectTransform.DOLocalMove(Vector3.zero, _fadeInDuration));
+    }
+
+    private IEnumerator TimeLoop()
+    {
+        while (true)
+        {
+            _winMaterial.SetFloat("_UnscaledTime",Time.unscaledTime);
+            _loseMaterial.SetFloat("_UnscaledTime",Time.unscaledTime);
+            yield return new WaitForNextFrameUnit();
+        }
     }
 }

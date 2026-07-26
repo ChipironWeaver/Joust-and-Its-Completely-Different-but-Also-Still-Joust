@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScoreController
   playerScore: 0
   _scoreText: {fileID: 0}
+  _popUp: {fileID: 7346922213453760618, guid: ca801662ea44c6649bb493eb5f79ac2b, type: 3}
 --- !u!95 &656076167434606186
 Animator:
   serializedVersion: 7

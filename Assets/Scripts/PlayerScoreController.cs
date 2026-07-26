@@ -8,6 +8,7 @@ public class PlayerScoreController : MonoBehaviour
 {
     public int playerScore;
     [SerializeField,Required] private TextMeshProUGUI _scoreText;
+    [SerializeField,Required] private GameObject _popUp;
 
     public void OnEnable()
     {
@@ -28,6 +29,7 @@ public class PlayerScoreController : MonoBehaviour
             Destroy(_scoreText.gameObject);
         }
         LevelManager.Instance?.playerScores.Add(playerScore);
+        Destroy(gameObject);
     }
 
     public void AddScore(int score, Vector2 position = default)
@@ -35,7 +37,8 @@ public class PlayerScoreController : MonoBehaviour
         playerScore += score;
         if (position != default)
         {
-            print(position.ToString());
+            GameObject popUp = Instantiate(_popUp, position, _popUp.transform.rotation);
+            popUp.GetComponent<ScorePopUp>().Initialize(score);
         }
         RenderScore(playerScore);
     }
