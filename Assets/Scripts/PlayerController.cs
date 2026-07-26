@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isActive) return;
         _animator.SetTrigger("Jump");
+        AudioManager.Instance.PlaySfx(SfxType.Jump);
         Instantiate(_jumpParticles, transform.position, Quaternion.identity);
         if (IsGrounded())
         {

@@ -48,6 +48,7 @@ public class EggBehavior : EnemyBehavior
     public override void Death()
     {
         isActive = false;
+        AudioManager.Instance.PlaySfx(SfxType.EggPickup);
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         LevelManager.Instance.enemies.Remove(this);
         Actions.EnemyDeath?.Invoke();

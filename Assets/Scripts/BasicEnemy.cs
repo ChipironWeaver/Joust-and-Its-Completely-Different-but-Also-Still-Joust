@@ -80,6 +80,7 @@ public class BasicEnemy : EnemyBehavior
     public override void Death()
     {
         isActive = false;
+        AudioManager.Instance.PlaySfx(SfxType.EnemyDeath);
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         Instantiate(_deathParticles, transform.position, Quaternion.identity);
         GetComponent<BoxCollider2D>().isTrigger = true;

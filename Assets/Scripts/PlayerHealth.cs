@@ -42,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         _renderer.UpdateHearts(_health);
         SetActivation(false);
         _animator.SetTrigger("Death");
+        AudioManager.Instance.PlaySfx(SfxType.Death);
         Instantiate(_deathParticles, transform.position, Quaternion.identity);
         Sequence seq = DOTween.Sequence();
         seq.AppendInterval(_deathTime);
