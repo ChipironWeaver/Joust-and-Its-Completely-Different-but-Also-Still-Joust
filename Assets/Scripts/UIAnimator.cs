@@ -70,6 +70,7 @@ public class UIAnimator : MonoBehaviour
         public bool soloOnScreen;
         public bool multipleObjects;
         public List<Image> buttonToDisable = new List<Image>();
+        public List<Slider> slidersToDisable = new List<Slider>();
         public AnimationObject singleAnimationObject;
         public AnimationObject[] animationObjects;
         public UnityEvent onAnimationStart;
@@ -79,6 +80,11 @@ public class UIAnimator : MonoBehaviour
             foreach (Image button in buttonToDisable)
             {
                 button.raycastTarget = !isFadeOut;
+            }
+
+            foreach (Slider slider in slidersToDisable)
+            {
+                slider.interactable = !isFadeOut;
             }
             float sequenceTime = 0;
             if (multipleObjects)

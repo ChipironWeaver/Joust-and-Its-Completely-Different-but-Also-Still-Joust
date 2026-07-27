@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SettingPanel : MonoBehaviour
+public class SettingManager : MonoBehaviour
 {
     public void QuitApp()
     {
