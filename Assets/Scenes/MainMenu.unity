@@ -1185,6 +1185,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391bc5d6128d4e14baaf4b4aa41ebe79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingPanel
+  currentSettingPreset: {fileID: 11400000, guid: 87663de39a961ba48a6ad7c432bf9a80, type: 2}
+  defaultSettingPreset: {fileID: 11400000, guid: 662362174854020468f6f0ceb38ff323, type: 2}
+  volumeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  masterGroup: {fileID: 24300002, guid: 47dd80b55b22c2247a99554cd0ca2534, type: 2}
+  masterSlider: {fileID: 2133932646}
+  sfxGroup: {fileID: 8062995151679543940, guid: 47dd80b55b22c2247a99554cd0ca2534, type: 2}
+  sfxSlider: {fileID: 1325359035}
+  musicGroup: {fileID: 3808482347593092365, guid: 47dd80b55b22c2247a99554cd0ca2534, type: 2}
+  musicSlider: {fileID: 1575590853}
 --- !u!1 &315786109
 GameObject:
   m_ObjectHideFlags: 0
@@ -7779,7 +7811,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 244042030}
+        m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &4211715339679233484
 PrefabInstance:
   m_ObjectHideFlags: 0
