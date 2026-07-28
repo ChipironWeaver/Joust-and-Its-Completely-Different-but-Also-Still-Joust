@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class UIAnimator : MonoBehaviour
     [SerializeField] private AnimationGroup[] _animationGroups;
     [SerializeField] private int _basePanelIndex = -1;
     [SerializeField] private bool _fadeBasePanelOnStart;
+    public EventSystem eventSystem;
 
     private Stack<int> _backStackIndex = new Stack<int>();
     private List<int> _activeIndexList = new List<int>();
@@ -22,6 +24,7 @@ public class UIAnimator : MonoBehaviour
 
     public void Start()
     {
+        Singleton();
         if (_fadeBasePanelOnStart)
         {
             Fade(_basePanelIndex);
@@ -69,6 +72,7 @@ public class UIAnimator : MonoBehaviour
     {
         public bool soloOnScreen;
         public bool multipleObjects;
+        public Selectable selectable;
         public List<Image> buttonToDisable = new List<Image>();
         public List<Slider> slidersToDisable = new List<Slider>();
         public AnimationObject singleAnimationObject;
@@ -76,7 +80,7 @@ public class UIAnimator : MonoBehaviour
         public UnityEvent onAnimationStart;
         public float Animate(bool isFadeOut = false)
         {
-            
+            if(selectable) Instance.eventSystem.SetSelectedGameObject(selectable.gameObject);
             foreach (Image button in buttonToDisable)
             {
                 button.raycastTarget = !isFadeOut;
@@ -157,6 +161,19 @@ public class UIAnimator : MonoBehaviour
                 }
                 else target.gameObject.SetActive(true);
             });
+        }
+    }
+    
+    public static UIAnimator Instance{ get; private set; }
+    void Singleton()
+    {
+        if (Instance !=null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
         }
     }
 }
