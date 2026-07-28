@@ -19685,6 +19685,7 @@ GameObject:
   - component: {fileID: 6432308349846109499}
   - component: {fileID: 3965726836840662886}
   - component: {fileID: 8403979775475301606}
+  - component: {fileID: 8403979775475301607}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -19905,6 +19906,22 @@ MonoBehaviour:
   _basePanelIndex: 0
   _fadeBasePanelOnStart: 1
   eventSystem: {fileID: 6432308349846109499}
+--- !u!114 &8403979775475301607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403979775475301605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc3b50bc5d69d14aa8f9e778db4829d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _materials:
+  - {fileID: 2100000, guid: 461271c8b4dc36740a02c06381964133, type: 2}
+  - {fileID: 2100000, guid: 63c972ee83340b0458fe90a7cca873c2, type: 2}
+  - {fileID: 2100000, guid: 46eb6d14485856d4a9a34ccbd772b221, type: 2}
 --- !u!1 &8409151690543428991
 GameObject:
   m_ObjectHideFlags: 0

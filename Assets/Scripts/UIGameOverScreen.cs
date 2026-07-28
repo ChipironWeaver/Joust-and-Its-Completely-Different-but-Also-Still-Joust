@@ -50,7 +50,6 @@ public class UIGameOverScreen : MonoBehaviour
         {
             button.raycastTarget = false;
         }
-        StartCoroutine(TimeLoop());
     }
     
     public void OnEnable()
@@ -90,15 +89,5 @@ public class UIGameOverScreen : MonoBehaviour
         _background.DOColor(win ? _winBackgroundColor : _loseBackgroundColor, _fadeInDuration);
         
         UIAnimator.Instance.Fade(2);
-    }
-
-    private IEnumerator TimeLoop()
-    {
-        while (true)
-        {
-            _winMaterial.SetFloat("_UnscaledTime",Time.unscaledTime);
-            _loseMaterial.SetFloat("_UnscaledTime",Time.unscaledTime);
-            yield return new WaitForNextFrameUnit();
-        }
     }
 }

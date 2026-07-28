@@ -78,6 +78,9 @@ public class PlayerHealth : MonoBehaviour
         Actions.PlayerDeath?.Invoke();
         LevelManager.Instance.RemovePlayer(this);
         SetActivation(false);
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Animator>().enabled = false;
     }
 
     private void SetActivation(bool isSetActive)
