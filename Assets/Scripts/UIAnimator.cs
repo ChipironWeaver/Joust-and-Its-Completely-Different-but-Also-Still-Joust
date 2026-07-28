@@ -142,7 +142,8 @@ public class UIAnimator : MonoBehaviour
             Sequence seq = DOTween.Sequence();
             seq.SetUpdate(true);
             seq.AppendInterval( isFadeOut ? Mathf.Max(biggestDelay - (delay + duration),0) : delay);
-            seq.Append(target.DOLocalMove(isFadeOut ? distance * direction + (useBaseTargetPosition ? _basePosition : targetPosition): useBaseTargetPosition ? _basePosition  : targetPosition, duration).SetEase(easeType)); 
+            seq.Append(target.DOLocalMove(isFadeOut ? distance * direction + (useBaseTargetPosition ? _basePosition : targetPosition):
+                useBaseTargetPosition ? _basePosition  : targetPosition, duration).SetEase(easeType)); 
             seq.Join(target.DOScale(isFadeOut ? baseScale : Vector2.one, duration).SetEase(easeType));
             seq.JoinCallback(() => onAnimationStart?.Invoke());
             seq.OnComplete(() =>
