@@ -158,6 +158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4655101644019151757}
   - {fileID: 6773492873758164912}
   - {fileID: 2126448312695569004}
   m_Father: {fileID: 0}
@@ -673,6 +674,96 @@ MonoBehaviour:
   _sfxAudioSource: {fileID: 8360854695387637831}
   _musicAudioSource: {fileID: 4730434565397329143}
   _playMusicOnAwake: 1
+--- !u!1 &4948669676493823363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4655101644019151757}
+  - component: {fileID: 2359847794450254273}
+  m_Layer: 5
+  m_Name: SettingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4655101644019151757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948669676493823363}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3958122524399230910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2359847794450254273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948669676493823363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391bc5d6128d4e14baaf4b4aa41ebe79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingPanel
+  currentSettingPreset:
+    masterVolume: 0
+    sfxVolume: 0
+    musicVolume: 0
+    dither: 0
+    fullscreen: 0
+  defaultSettingPreset:
+    masterVolume: 0.67
+    sfxVolume: 0.67
+    musicVolume: 0.67
+    dither: 1
+    fullscreen: 1
+  volumeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  masterGroup: {fileID: 24300002, guid: 47dd80b55b22c2247a99554cd0ca2534, type: 2}
+  masterSlider: {fileID: 0}
+  sfxGroup: {fileID: 8062995151679543940, guid: 47dd80b55b22c2247a99554cd0ca2534, type: 2}
+  sfxSlider: {fileID: 0}
+  musicGroup: {fileID: 3808482347593092365, guid: 47dd80b55b22c2247a99554cd0ca2534, type: 2}
+  musicSlider: {fileID: 0}
+  ditherMat: {fileID: 2100000, guid: 60c2db7671f0b164587dda75dd293ec2, type: 2}
+  ditherImage: {fileID: 7781911438614516239}
+  ditherToggle: {fileID: 0}
+  fullscreenToggle: {fileID: 0}
 --- !u!1 &9175926045891801727
 GameObject:
   m_ObjectHideFlags: 0

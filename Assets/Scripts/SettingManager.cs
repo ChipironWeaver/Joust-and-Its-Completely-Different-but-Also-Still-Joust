@@ -1,3 +1,4 @@
+using System.Runtime.Serialization;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -5,8 +6,8 @@ using UnityEngine.UI;
 
 public class SettingManager : MonoBehaviour
 {
-    [Expandable] public SettingPreset currentSettingPreset;
-    [Expandable] public SettingPreset defaultSettingPreset;
+    public SettingPreset currentSettingPreset;
+    public SettingPreset defaultSettingPreset;
 
     [CurveRange(0,0,1,1,EColor.Violet)] public AnimationCurve volumeCurve;
     
@@ -16,46 +17,93 @@ public class SettingManager : MonoBehaviour
     public Slider sfxSlider;
     public AudioMixerGroup musicGroup;
     public Slider musicSlider;
+    
+    public Material ditherMat;
+    public RawImage ditherImage;
+    public Toggle ditherToggle;
+    
+    public Toggle fullscreenToggle;
         
     public void OnEnable()
     {
-        masterSlider.onValueChanged.AddListener((arg) =>
+        if(masterSlider) masterSlider.onValueChanged.AddListener((arg) =>
         {
             SetVolume(masterSlider.value, masterGroup);
             currentSettingPreset.masterVolume = masterSlider.value;
         });
-        sfxSlider.onValueChanged.AddListener((arg) =>
+        if(sfxSlider) sfxSlider.onValueChanged.AddListener((arg) =>
         {
             SetVolume(sfxSlider.value, sfxGroup);
             currentSettingPreset.sfxVolume = sfxSlider.value;
         });
-        musicSlider.onValueChanged.AddListener((arg) =>
+        if(musicSlider) musicSlider.onValueChanged.AddListener((arg) =>
         {
             SetVolume(musicSlider.value, musicGroup);
             currentSettingPreset.musicVolume = musicSlider.value;
+        });
+        if(ditherToggle) ditherToggle.onValueChanged.AddListener(arg =>
+        {
+            currentSettingPreset.dither = ditherToggle.isOn;
+            ditherImage.material = currentSettingPreset.dither ? ditherMat : null;
+        });
+        if(fullscreenToggle) fullscreenToggle.onValueChanged.AddListener(arg =>
+        {
+            currentSettingPreset.fullscreen = fullscreenToggle.isOn;
+            Screen.SetResolution(Screen.width, Screen.height, currentSettingPreset.fullscreen);
         });
     }
     public void OnDisable()
     {
-        masterSlider.onValueChanged.RemoveListener((arg) =>
+        SaveSystem.Save(currentSettingPreset,"currentSettingPreset");
+        if(masterSlider) masterSlider.onValueChanged.RemoveListener((arg) =>
         {
             SetVolume(masterSlider.value, masterGroup);
             currentSettingPreset.masterVolume = masterSlider.value;
         });
-        sfxSlider.onValueChanged.RemoveListener((arg) =>
+        if(sfxSlider) sfxSlider.onValueChanged.RemoveListener((arg) =>
         {
             SetVolume(sfxSlider.value, sfxGroup);
             currentSettingPreset.sfxVolume = sfxSlider.value;
         });
-        musicSlider.onValueChanged.RemoveListener((arg) =>
+        if(musicSlider) musicSlider.onValueChanged.RemoveListener((arg) =>
         {
             SetVolume(musicSlider.value, musicGroup);
             currentSettingPreset.musicVolume = musicSlider.value;
         });
+        if(ditherToggle) ditherToggle.onValueChanged.RemoveListener(arg =>
+        {
+            currentSettingPreset.dither = ditherToggle.isOn;
+            ditherImage.material = currentSettingPreset.dither ? ditherMat : null;
+        });
+        if(fullscreenToggle) fullscreenToggle.onValueChanged.RemoveListener(arg =>
+        {
+            currentSettingPreset.fullscreen = fullscreenToggle.isOn;
+            Screen.SetResolution(Screen.width, Screen.height, currentSettingPreset.fullscreen);
+        });
     }
 
+    public void SetDither(bool value)
+    {
+        ditherImage.material = value ? ditherMat : null;
+        currentSettingPreset.dither = value;
+    }
+    
+    public void SetFullscreen(bool value)
+    {
+        currentSettingPreset.fullscreen = value;
+        Screen.SetResolution(Screen.width, Screen.height, currentSettingPreset.fullscreen);
+    }
+    
     public void Start()
     {
+        if (SaveSystem.FileExist("currentSettingPreset"))
+        {
+            currentSettingPreset = SaveSystem.Load<SettingPreset>("currentSettingPreset");
+        }
+        else
+        {
+            currentSettingPreset = defaultSettingPreset;
+        }
         ApplyCurrentPreset();
     }
     public void QuitApp()
@@ -67,21 +115,35 @@ public class SettingManager : MonoBehaviour
     public void ApplyCurrentPreset()
     {
         SetVolume(currentSettingPreset.masterVolume,masterGroup);
-        masterSlider.value = currentSettingPreset.masterVolume;
+        if(masterSlider) masterSlider.value = currentSettingPreset.masterVolume;
         SetVolume(currentSettingPreset.sfxVolume,sfxGroup);
-        sfxSlider.value = currentSettingPreset.sfxVolume;
+        if(sfxSlider) sfxSlider.value = currentSettingPreset.sfxVolume;
         SetVolume(currentSettingPreset.musicVolume,musicGroup);
-        musicSlider.value = currentSettingPreset.musicVolume;
+        if(musicSlider) musicSlider.value = currentSettingPreset.musicVolume;
+
+        ditherImage.material = currentSettingPreset.dither ? ditherMat : null;
+        if(ditherToggle)
+        {
+            ditherToggle.isOn = currentSettingPreset.dither;
+            ditherToggle.onValueChanged?.Invoke(ditherToggle.isOn);
+        }
+        
+        Screen.SetResolution(Screen.width, Screen.height, currentSettingPreset.fullscreen);
+        if(fullscreenToggle)
+        {
+            fullscreenToggle.isOn = currentSettingPreset.dither;
+            fullscreenToggle.onValueChanged?.Invoke(fullscreenToggle.isOn);
+        }
     }
     public void SetVolume(float volume, AudioMixerGroup group)
     {
         group.audioMixer.SetFloat(group.name , volumeCurve.Evaluate(volume) * 90 - 80);
     }
+
     [Button]
-    public void ResetCurrentPreset()
+    public void UpdateToggles()
     {
-        currentSettingPreset.masterVolume = defaultSettingPreset.masterVolume;
-        currentSettingPreset.sfxVolume = defaultSettingPreset.sfxVolume;
-        currentSettingPreset.musicVolume = defaultSettingPreset.musicVolume;
+        //if(ditherToggle) ditherToggle.graphic. ;
+        if(fullscreenToggle) fullscreenToggle.isOn = currentSettingPreset.dither;
     }
 }
