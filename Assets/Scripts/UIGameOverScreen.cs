@@ -87,11 +87,9 @@ public class UIGameOverScreen : MonoBehaviour
             panel.material = win ? _winMaterial : _loseMaterial;
         }
         
-        Sequence fadeInSequence = DOTween.Sequence();
-        fadeInSequence.SetUpdate(true);
-        fadeInSequence.Append(_background.DOColor(win ? _winBackgroundColor : _loseBackgroundColor, _fadeInDuration));
-        fadeInSequence.Join(_panel.transform.DOScale(Vector3.one, _fadeInDuration));
-        fadeInSequence.Join(_panel.rectTransform.DOLocalMove(Vector3.zero, _fadeInDuration));
+        _background.DOColor(win ? _winBackgroundColor : _loseBackgroundColor, _fadeInDuration);
+        
+        UIAnimator.Instance.Fade(2);
     }
 
     private IEnumerator TimeLoop()

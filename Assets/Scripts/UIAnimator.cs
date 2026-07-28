@@ -34,7 +34,10 @@ public class UIAnimator : MonoBehaviour
     public void Fade(int baseIndex)
     {
         int index = Mathf.Abs(baseIndex);
-        if(isInAnimation || _activeIndexList.Contains(index)) return;
+        if(_activeIndexList.Contains(index)) return;
+        if (isInAnimation && !_animationGroups[index].forceAnimation) return;
+        if (_animationGroups[index].forceAnimation) DOTween.KillAll();
+
         if(_animationGroups[index].soloOnScreen)
         {
             foreach (int fadeOutIndex in _activeIndexList)
@@ -55,17 +58,31 @@ public class UIAnimator : MonoBehaviour
 
     private IEnumerator ToggleIsInAnimation(float duration)
     {
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
         isInAnimation = !isInAnimation;
     }
     [Button]
     public void Back()
     {
-        if(isInAnimation) return;
-        if(_backStackIndex.Count == 0) return;
-        if (!_animationGroups[_currentPanelIndex].canGoBack) return;
-        if (_animationGroups[_currentPanelIndex].soloOnScreen) Fade(_backStackIndex.Peek() * -1);
-        _currentPanelIndex = _backStackIndex.Pop();
+        print("trying to go back");
+        if(isInAnimation)
+        {
+            print("can't is in animation");
+            return;
+        }
+        if(_backStackIndex.Count == 0 && _animationGroups[_currentPanelIndex].specialBackIndex == -1)
+        {
+            print("can't no back stack and no special back index");
+            return;
+        }
+        if (!_animationGroups[_currentPanelIndex].canGoBack)
+        {
+            print("can't go back");
+            return;
+        }
+        int targetIndex = _animationGroups[_currentPanelIndex].specialBackIndex == -1 ? _backStackIndex.Pop() : _animationGroups[_currentPanelIndex].specialBackIndex;
+        if (_animationGroups[_currentPanelIndex].soloOnScreen) Fade(targetIndex * -1);
+        _currentPanelIndex = targetIndex;
     }
     
     [Serializable]
@@ -74,6 +91,9 @@ public class UIAnimator : MonoBehaviour
         public bool soloOnScreen;
         public bool multipleObjects;
         public bool canGoBack = true;
+        public int specialBackIndex = -1;
+        public bool forceAnimation = false;
+        public float timeScale = -1;
         public Selectable selectable;
         public List<Image> buttonToDisable = new List<Image>();
         public List<Slider> slidersToDisable = new List<Slider>();
@@ -83,6 +103,7 @@ public class UIAnimator : MonoBehaviour
         public float Animate(bool isFadeOut = false)
         {
             if(selectable) Instance.eventSystem.SetSelectedGameObject(selectable.gameObject);
+            if(timeScale != -1 && !isFadeOut) Time.timeScale = timeScale;
             foreach (Image button in buttonToDisable)
             {
                 button.raycastTarget = !isFadeOut;

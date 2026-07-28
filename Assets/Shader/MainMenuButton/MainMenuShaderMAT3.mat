@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GameplayLose
+  m_Name: MainMenuShaderMAT3
   m_Shader: {fileID: -6465566751694194690, guid: 8beff22c204bf2a45ad7902a99f86f68, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
-    - _MovementSpeed: 0.05
+    - _MovementSpeed: 0.03
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -50,21 +50,21 @@ Material:
     - _StencilWriteMask: 255
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
-    - _UnscaledTime: 11.314888
+    - _UnscaledTime: 0
     - _UseUnscaledTime: 1
     m_Colors:
-    - _ACheckerHigh: {r: 1, g: 0.86190957, b: 0.8352941, a: 1}
-    - _ACheckerLow: {r: 1, g: 0.6650944, b: 0.7304513, a: 1}
-    - _ACheckerMid: {r: 1, g: 0.75, b: 0.75922155, a: 1}
-    - _BCheckerHigh: {r: 1, g: 0.5794025, b: 0.495283, a: 1}
-    - _BCheckerLow: {r: 1, g: 0.4198113, b: 0.5290233, a: 1}
-    - _BCheckerMid: {r: 1, g: 0.5330188, b: 0.5549086, a: 1}
+    - _ACheckerHigh: {r: 1, g: 0.9009434, b: 0.93048656, a: 1}
+    - _ACheckerLow: {r: 1, g: 0.7028302, b: 0.9901761, a: 1}
+    - _ACheckerMid: {r: 1, g: 0.740566, b: 0.88231856, a: 1}
+    - _BCheckerHigh: {r: 1, g: 0.5896226, b: 0.6990565, a: 1}
+    - _BCheckerLow: {r: 1, g: 0.504717, b: 0.9106548, a: 1}
+    - _BCheckerMid: {r: 1, g: 0.5424528, b: 0.7899018, a: 1}
     - _CheckerFrequency: {r: 7, g: 7, b: 0, a: 0}
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _EdgeHigh: {r: 0.8301887, g: 0.1415826, b: 0, a: 1}
-    - _EdgeLow: {r: 0.735849, g: 0, b: 0.13921452, a: 1}
-    - _EdgeMid: {r: 0.7830189, g: 0, b: 0.039480034, a: 1}
-    - _MovementDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _EdgeHigh: {r: 0.7075472, g: 0, b: 0.21102272, a: 1}
+    - _EdgeLow: {r: 0.6981132, g: 0, b: 0.6750349, a: 1}
+    - _EdgeMid: {r: 0.7075472, g: 0, b: 0.38659775, a: 1}
+    - _MovementDirection: {r: 3, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

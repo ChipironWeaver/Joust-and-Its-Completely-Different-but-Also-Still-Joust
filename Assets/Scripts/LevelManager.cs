@@ -78,7 +78,10 @@ public class LevelManager : MonoBehaviour
                 Destroy(player.gameObject);
                 return;
             }
-            else players.Add(player);
+            else
+            {
+                players.Add(player);
+            }
         }
         else if (!players.Contains(player)) players.Add(player);
         

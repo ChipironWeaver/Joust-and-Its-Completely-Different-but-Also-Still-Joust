@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     [Button]
-    private void PermaDeath()
+    public void PermaDeath()
     {
         Actions.PlayerDeath?.Invoke();
         LevelManager.Instance.RemovePlayer(this);
