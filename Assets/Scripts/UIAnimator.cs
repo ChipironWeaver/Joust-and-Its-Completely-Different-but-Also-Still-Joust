@@ -63,6 +63,7 @@ public class UIAnimator : MonoBehaviour
     {
         if(isInAnimation) return;
         if(_backStackIndex.Count == 0) return;
+        if (!_animationGroups[_currentPanelIndex].canGoBack) return;
         if (_animationGroups[_currentPanelIndex].soloOnScreen) Fade(_backStackIndex.Peek() * -1);
         _currentPanelIndex = _backStackIndex.Pop();
     }
@@ -72,6 +73,7 @@ public class UIAnimator : MonoBehaviour
     {
         public bool soloOnScreen;
         public bool multipleObjects;
+        public bool canGoBack = true;
         public Selectable selectable;
         public List<Image> buttonToDisable = new List<Image>();
         public List<Slider> slidersToDisable = new List<Slider>();
@@ -115,6 +117,7 @@ public class UIAnimator : MonoBehaviour
     public class AnimationObject
     {
         public RectTransform target;
+        public bool disableTarget = true;
         public bool useBaseTargetPosition = true;
         public Vector2 targetPosition;
         public Vector2 direction;
@@ -152,14 +155,19 @@ public class UIAnimator : MonoBehaviour
             seq.JoinCallback(() => onAnimationStart?.Invoke());
             seq.OnComplete(() =>
             {
-                target.localScale = Vector3.one;
+                
                 onAnimationEnd?.Invoke();
                 if (isFadeOut)
                 {
-                    target.gameObject.SetActive(false);
+                    if (disableTarget) target.gameObject.SetActive(false);
                     target.localPosition = _basePosition;
+                    
                 }
-                else target.gameObject.SetActive(true);
+                else
+                {
+                    target.gameObject.SetActive(true);
+                    target.localScale = Vector3.one;
+                }
             });
         }
     }

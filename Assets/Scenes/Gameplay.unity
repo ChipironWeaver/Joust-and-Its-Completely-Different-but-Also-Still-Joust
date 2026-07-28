@@ -13592,6 +13592,7 @@ GameObject:
   - component: {fileID: 3322491067021298154}
   - component: {fileID: 6432308349846109499}
   - component: {fileID: 3965726836840662886}
+  - component: {fileID: 8403979775475301606}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -13599,6 +13600,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8403979775475301606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403979775475301605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc669bf2279d52948baca1787928dab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIAnimator
+  isInAnimation: 0
+  _animationGroups: []
+  _basePanelIndex: -1
+  _fadeBasePanelOnStart: 0
+  eventSystem: {fileID: 6432308349846109499}
 --- !u!1 &8570163961370041054
 GameObject:
   m_ObjectHideFlags: 0
