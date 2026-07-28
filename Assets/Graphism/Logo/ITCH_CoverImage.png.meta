@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1a706cefb2865034c9e53473e5826bad
+guid: b25a2c9d56c95c048a61e7293f1adc5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4004268639706969210
-    second: UI_HandHeldControl_0
+      213: -3699020644880128905
+    second: ITCH_CoverImage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,89 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_HandHeldControl_0
+      name: ITCH_CoverImage_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 9
-        height: 9
+        width: 630
+        height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7478febc15029730800000000000000
-      internalID: 4004268639706969210
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_HandHeldControl_1
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 0
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ced956e1acc079040828b73b492dd00b
-      internalID: -753927758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_HandHeldControl_2
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 0
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3db03809824839f4ca0cd445e21de8c9
-      internalID: -1555715299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_HandHeldControl_3
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 0
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3555ca957e937448a767c11085c5be6
-      internalID: -821236028
+      spriteID: 774651d52507aacc0800000000000000
+      internalID: -3699020644880128905
       vertices: []
       indices: 
       edges: []
@@ -217,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 95cc9402ba5663e4cac3aa5db9b53c4b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -225,14 +159,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":9.0,"y":9.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      UI_HandHeldControl_0: 4004268639706969210
-      UI_HandHeldControl_1: -753927758
-      UI_HandHeldControl_2: -1555715299
-      UI_HandHeldControl_3: -821236028
+      ITCH_CoverImage_0: -3699020644880128905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
