@@ -12929,7 +12929,7 @@ MonoBehaviour:
     weightRangePerWave: {x: 0, y: 4}
     prefab: {fileID: 649713570011417237, guid: 75f4464defce800408175c0cdff10df9, type: 3}
   _backgroundMaterialChanger: {fileID: 1244419948}
-  canSpawn: 1
+  canSpawn: 0
   currentWave: 0
   enemiesToSpawn: 0
 --- !u!114 &1599412889
@@ -13147,7 +13147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acbb2d92826aba04c82725db7a7ebc45, type: 2}
   m_sharedMaterial: {fileID: 6349370797763731684, guid: acbb2d92826aba04c82725db7a7ebc45, type: 2}

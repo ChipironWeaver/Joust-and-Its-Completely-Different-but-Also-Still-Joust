@@ -3466,7 +3466,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 535047651}
   m_TrackedDeviceOrientationAction: {fileID: 835940745}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
 --- !u!114 &1607931888
